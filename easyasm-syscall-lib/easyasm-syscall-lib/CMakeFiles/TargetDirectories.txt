@@ -1,0 +1,3 @@
+/home/aaron/Downloads/easyasm-syscall-lib/CMakeFiles/rebuild_cache.dir
+/home/aaron/Downloads/easyasm-syscall-lib/CMakeFiles/edit_cache.dir
+/home/aaron/Downloads/easyasm-syscall-lib/CMakeFiles/sc-plugin.dir
