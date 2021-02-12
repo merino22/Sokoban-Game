@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libsc-plugin.so -o libsc-plugin.so CMakeFiles/sc-plugin.dir/plugin_main.cpp.o  -static-libgcc -static-libstdc++ 
