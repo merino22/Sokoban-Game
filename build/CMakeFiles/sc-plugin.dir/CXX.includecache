@@ -6,7 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/aaron/Downloads/easyasm-syscall-lib/plugin_main.cpp
+../easm.h
+cstdint
+-
+cstddef
+-
+
+/home/aaron/Desktop/easyasm-syscall-lib/plugin_main.cpp
 iostream
 -
 string
@@ -16,7 +22,7 @@ string.h
 easm.h
 -
 rlutil.h
-/home/aaron/Downloads/easyasm-syscall-lib/rlutil.h
+/home/aaron/Desktop/easyasm-syscall-lib/rlutil.h
 algorithm
 -
 cstdlib
@@ -26,7 +32,7 @@ cstdio
 ctime
 -
 
-/home/aaron/Downloads/easyasm-syscall-lib/rlutil.h
+/home/aaron/Desktop/easyasm-syscall-lib/rlutil.h
 iostream
 -
 string
@@ -50,11 +56,5 @@ sys/ioctl.h
 sys/types.h
 -
 sys/time.h
--
-
-easm.h
-cstdint
--
-cstddef
 -
 
