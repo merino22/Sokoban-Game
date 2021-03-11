@@ -1,7 +1,11 @@
 .global Block
 .global Tree
 .global Box
+.global Boxspot
+.global Player
+.global ErasePlayer
 
+; Print Box Function
 Box:
     li $v0, 29
     li $a0, 3
@@ -115,7 +119,7 @@ end_s_for_box:
 end_for_box:
     jr $ra
 
-
+; Print Block Function
 Block:
     li $t1, 0
 for_block:
@@ -199,6 +203,7 @@ end_sec_for_block:
 end_for_block:
     jr $ra
 
+; Print Tree Function
 Tree:
     li $v0, 11
     li $a0, 32
@@ -291,4 +296,281 @@ end_sec_for_tree:
 end_for_tree:
     jr $ra
 
-    
+; Print Boxspot Function
+Boxspot:
+    li $v0, 28
+    li $a0, 7
+    syscall
+    li $t1, 0 ; --> i
+for_box_spot:
+    slti $t0, $t1, 3
+    beq $t0, $zero, end_for_boxspot
+    sw $a2, 336($sp)
+    add $a2, $a2, $t1
+    li $v0, 51
+    syscall
+    lw $a2, 336($sp)
+    li $t2, 0 ; --> j
+s_for_boxspot:
+    slti $t0, $t2, 7
+    beq $t0, $zero, end_s_for_boxspot
+    li $t3, 0 ; --> comp var
+i_bs_0:
+    bne $t1, $t3, i_bs_1
+x_j_2:
+    li $t3, 2
+    bne $t2, $t3, x_j_4
+    li $v0, 28
+    li $a0, 7
+    syscall
+    li $v0, 27
+    li $a0, 92
+    syscall
+    j end_i_bs
+x_j_4:
+    li $t3, 4
+    bne $t2, $t3, x_j_e
+    li $v0, 28
+    li $a0, 7
+    syscall
+    li $v0, 27
+    li $a0, 47
+    syscall
+    j end_i_bs
+x_j_e:
+    li $v0, 30
+    syscall
+    li $v0, 27
+    li $a0, 32
+    syscall
+    j end_i_bs
+i_bs_1:
+    li $t3, 1
+    bne $t1, $t3, i_bs_2
+y_j_3:
+    li $t3, 3
+    bne $t2, $t3, y_j_e
+    li $v0, 28
+    li $a0, 7
+    syscall
+    li $v0, 27
+    li $a0, 88
+    syscall
+    j end_i_bs
+y_j_e:
+    li $v0, 30
+    syscall
+    li $v0, 27
+    li $a0, 32
+    syscall
+    j end_i_bs
+i_bs_2:
+z_j_2:
+    li $t3, 2
+    bne $t2, $t3, z_j_4
+    li $v0, 28
+    li $a0, 7
+    syscall
+    li $v0, 27
+    li $a0, 47
+    syscall
+    j end_i_bs
+z_j_4:
+    li $t3, 4
+    bne $t2, $t3, z_j_e
+    li $v0, 28
+    li $a0, 7
+    syscall
+    li $v0, 27
+    li $a0, 92
+    syscall
+    j end_i_bs
+z_j_e:
+    li $v0, 30
+    syscall
+    li $v0, 27
+    li $a0, 32
+    syscall 
+end_i_bs:
+    addi $t2, $t2, 1
+    j s_for_boxspot
+end_s_for_boxspot:
+    li $v0, 11
+    li $a0, 10
+    syscall
+    addi $t1, $t1, 1
+    j for_box_spot 
+end_for_boxspot:
+    jr $ra
+
+; --> Print Player Function
+Player:
+    li $v0, 30
+    syscall
+    li $t1, 0 ;--> i
+for_player:
+    ;#show $t1
+    slti $t0, $t1, 3
+    beq $t0, $zero, end_for_player
+    sw $a2, 336($sp)
+    add $a2, $a2, $t1
+    li $v0, 51
+    syscall
+    lw $a2, 336($sp)
+    li $t2, 0 ; --> j
+s_for_player:
+    slti $t0, $t2, 7
+    beq $t0, $zero, end_s_for_player
+    li $t3, 0
+i_p_0:
+    bne $t1, $t3, i_p_1
+    li $v0, 28
+    li $a0, 1
+    syscall
+    li $v0, 27
+i_p_0_j_1:
+    li $t3, 1
+    bne $t2, $t3, i_p_0_j_5
+    li $a0, 220
+    syscall
+    j end_i_player
+i_p_0_j_5:
+    li $t3, 5
+    bne $t2, $t3, i_p_0_j_2
+    li $a0, 220
+    syscall
+    j end_i_player
+i_p_0_j_2:
+    li $t3, 2
+    bne $t2, $t3, i_p_0_j_3
+    li $a0, 219
+    syscall
+    j end_i_player
+i_p_0_j_3:
+    li $t3, 3
+    bne $t2, $t3, i_p_0_j_4
+    li $a0, 219
+    syscall
+    j end_i_player
+i_p_0_j_4:
+    li $t3, 4
+    bne $t2, $t3, i_p_0_j_e
+    li $a0, 219
+    syscall
+    j end_i_player
+i_p_0_j_e:
+    li $a0, 32
+    syscall
+    j end_i_player
+i_p_1:
+    li $t3, 1
+    bne $t1, $t3, i_p_2
+    li $v0, 28
+    li $a0, 7
+    syscall
+    li $v0, 27
+i_p_1_j_1:
+    li $t3, 1
+    bne $t2, $t3, i_p_1_j_5
+    li $a0, 179
+    syscall
+    j end_i_player
+i_p_1_j_5:
+    li $t3, 5
+    bne $t2, $t3, i_p_1_j_2
+    li $a0, 179
+    syscall
+    j end_i_player
+i_p_1_j_2:
+    li $t3, 2
+    bne $t2, $t3, i_p_1_j_4
+    li $a0, 228
+    syscall
+    j end_i_player
+i_p_1_j_4:
+    li $t3, 4
+    bne $t2, $t3, i_p_1_j_3
+    li $a0, 228
+    syscall
+    j end_i_player
+i_p_1_j_3:
+    li $t3, 3
+    bne $t2, $t3, i_p_1_j_e
+    li $a0, 95
+    syscall
+    j end_i_player
+i_p_1_j_e:
+    li $a0, 32
+    syscall
+    j end_i_player
+i_p_2:
+    li $t3, 2
+    bne $t1, $t3, end_i_player
+    ;#show $t1
+i_p_2_j_1:
+    li $t3, 1
+    bne $t2, $t3, i_p_2_j_5
+    li $v0, 11
+    li $a0, 92
+    ;#show $a0
+    syscall
+    j end_i_player
+i_p_2_j_5:
+    li $t3, 5
+    bne $t2, $t3, i_p_2_j_3
+    li $v0, 11
+    li $a0, 47
+    syscall
+    j end_i_player
+i_p_2_j_3:
+    li $t3, 3
+    bne $t2, $t3, i_p_2_j_e
+    li $v0, 27
+    li $a0, 196
+    syscall
+    j end_i_player
+i_p_2_j_e:
+    li $v0, 11
+    li $a0, 32
+    syscall
+end_i_player:
+
+    addi $t2, $t2, 1
+    j s_for_player
+end_s_for_player:
+    ;li $v0, 11
+    ;li $a0, 10
+    ;syscall
+    addi $t1, $t1, 1
+    j for_player
+end_for_player:
+    jr $ra
+
+ErasePlayer:
+    li $v0, 30 ; --> call rlutil::resetColor()
+    syscall
+    li $v0, 11
+    li $a0, 32
+    li $t1, 0 ; --> i
+for_ep_i:
+    slti $t0, $t1, 3
+    beq $t0, $zero, end_for_ep_i
+    sw $a2, 336($sp)
+    add $a2, $a2, $t1
+    li $v0, 51 ; --> call rlutil::locate(x,y)
+    syscall
+    lw $a2, 336($sp)
+    li $t2, 0 ; --> j
+for_ep_j:
+    slti $t0, $t2, 7
+    beq $t0, $zero, end_for_ep_j
+    li $v0, 11
+    li $a0, 32
+    syscall
+    addi $t2, $t2, 1
+    j for_ep_j
+end_for_ep_j:
+    addi $t1, $t1, 1
+    j for_ep_i
+end_for_ep_i:
+    jr $ra

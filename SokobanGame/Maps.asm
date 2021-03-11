@@ -1,5 +1,8 @@
 .global printMap
 .global generateMap
+.global checkPosX
+.global checkPosY
+.global RepaintBoxes
 
 printMap:
     ; $a0 --> mem direction of map
@@ -16,6 +19,7 @@ for_j:
     slti $t0, $t2, 9
     beq $t0, $zero, end_for_j
     lw $a0, 340($sp)
+    ;#show $a0
     li $t0, 36
     li $t3, 0
     mult $t1, $t0 ; --> i * 36
@@ -24,21 +28,32 @@ for_j:
     add $t3, $t0, $t3
     add $t3, $a0, $t3
     lw $t4, 0($t3)
-
+    ;#show $t4
     li $t0, 1 ;--> constant 1
     sw $t1, 328($sp) ;--> store i var in stack
     sw $t2, 332($sp) ;--> store j var in stack
+    ;#show $a0
+    sw $a0, 340($sp)
 if_tree:
     bne $t4, $t0, if_block
     jal Tree
+    ;#show $a0
 if_block:
     li $t0, 2
     bne $t4, $t0, if_box 
     jal Block
 if_box:
     li $t0, 3
-    bne $t4, $t0, end_ifs
+    bne $t4, $t0, if_boxspot
     jal Box
+if_boxspot:
+    li $t0, 5
+    bne $t4, $t0, if_player
+    jal Boxspot
+if_player:
+    li $t0, 4
+    bne $t4, $t0, end_ifs
+    jal Player
 end_ifs:
     lw $t1, 328($sp)
     lw $t2, 332($sp)
@@ -249,7 +264,282 @@ if_second_level:
 if_third_level:
     li $t0, 3
     bne $a3, $t0, end_levels
-
 end_levels:
     jr $ra
 
+checkPosX:
+    lw $a0, 340($sp)
+    ;#show $a0
+    move $t1, $a1 ; --> x
+    move $t2, $a2 ; --> y
+    move $t3, $a3 ; --> posMove
+    li $t4, 7 ; --> Divisor
+    ; --> x-1/7
+    addi $t1, $t1, -1 
+    div $t1, $t4
+    mflo $t1
+
+    ; --> posMove/7
+    div $t3, $t4
+    mflo $t3
+    
+    ; --> y-1/3
+    li $t4, 3
+    addi $t2, $t2, -1
+    div $t2, $t4
+    mflo $t2
+
+    li $t4, 0 ;--> boxSum
+if_lt_0:
+    slt $t0, $t3, $zero
+    beq $t0, $zero, else_lt_0
+    li $t4, -1
+    j end_lt
+else_lt_0:
+    li $t4, 1
+end_lt:
+
+    li $t5, 36
+    mult $t2, $t5
+    mflo $t2
+
+    li $t5, 4
+    mult $t1, $t5
+    mflo $t1
+
+    mult $t3, $t5
+    mflo $t3
+
+    mult $t4, $t5
+    mflo $t4
+
+    li $t5, 0
+    add $t5, $a0, $t5
+    ;#show $t5
+    add $t5, $t5, $t2
+    add $t5, $t5, $t1
+    sw $t5, 348($sp) ;--> x + y
+    add $t5, $t5, $t3
+    ;#show $t5
+    sw $t5, 352($sp);--> x + y + posMove
+    add $t5, $t5, $t4
+    sw $t5, 356($sp);--> x+y+posMove+boxsum
+
+if_arr_2:
+    lw $t4, 352($sp)
+    lw $t5, 0($t4)
+    li $t1, 2
+    bne $t1, $t5, if_arr_3
+    li $v0, 0
+    j end_if_arr
+if_arr_3:
+    li $t1, 3
+    bne $t1, $t5, if_arr_e
+
+if_boxsum_0:
+    lw $t4, 356($sp)
+    lw $t5, 0($t4)
+    li $t1, 0
+    bne $t5, $t1, if_boxsum_5
+    lw $t4, 348($sp)
+    sw $t1, 0($t4)
+    lw $t4, 352($sp)
+    li $t1, 4
+    sw $t1, 0($t4)
+    lw $t4, 356($sp)
+    li $t1, 3
+    sw $t1, 0($t4)
+    li $v0, 1
+    j end_if_arr
+if_boxsum_5:
+    li $t1, 5
+    bne $t5, $t1, if_boxsum_e
+    lw $t4, 348($sp)
+    sw $t1, 0($t4)
+    lw $t4, 352($sp)
+    li $t1, 4
+    sw $t1, 0($t4)
+    lw $t4, 356($sp)
+    li $t1, 3
+    sw $t1, 0($t4)
+    li $v0, 1
+    j end_if_arr
+if_boxsum_e:
+    li $v0, 0
+    j end_if_arr
+if_arr_e:
+    lw $t4, 348($sp)
+    li $t1, 0
+    sw $t1, 0($t4)
+    lw $t4, 352($sp)
+    li $t1, 4
+    sw $t1, 0($t4)
+    li $v0, 1
+end_if_arr:
+    sw $a0, 340($sp)
+    jr $ra
+
+; ==== Check Pos Y ==================
+checkPosY:
+lw $a0, 340($sp)
+    ;#show $a0
+    move $t1, $a1 ; --> x
+    move $t2, $a2 ; --> y
+    move $t3, $a3 ; --> posMove
+    li $t4, 7 ; --> Divisor
+    ; --> x-1/7
+    addi $t1, $t1, -1 
+    div $t1, $t4
+    mflo $t1
+
+    li $t4, 3
+    ; --> posMove/3
+    div $t3, $t4
+    mflo $t3
+    
+    ; --> y-1/3
+    li $t4, 3
+    addi $t2, $t2, -1
+    div $t2, $t4
+    mflo $t2
+
+    li $t4, 0 ;--> boxSum
+if_lt_0_y:
+    slt $t0, $t3, $zero
+    beq $t0, $zero, else_lt_0_y
+    li $t4, -1
+    j end_lt_y
+else_lt_0_y:
+    li $t4, 1
+end_lt_y:
+
+    li $t5, 36
+    mult $t2, $t5
+    mflo $t2
+
+    mult $t3, $t5
+    mflo $t3
+
+    mult $t4, $t5
+    mflo $t4
+
+    li $t5, 4
+    mult $t1, $t5
+    mflo $t1
+
+    li $t5, 0
+    add $t5, $a0, $t5
+    ;#show $t5
+    add $t5, $t5, $t2
+    add $t5, $t5, $t1
+    sw $t5, 348($sp) ;--> x + y
+    add $t5, $t5, $t3
+    ;#show $t5
+    sw $t5, 352($sp);--> x + y + posMove
+    add $t5, $t5, $t4
+    sw $t5, 356($sp);--> x+y+posMove+boxsum
+
+if_arr_2_y:
+    lw $t4, 352($sp)
+    lw $t5, 0($t4)
+    li $t1, 2
+    bne $t1, $t5, if_arr_3_y
+    li $v0, 0
+    j end_if_arr
+if_arr_3_y:
+    li $t1, 3
+    bne $t1, $t5, if_arr_e_y
+
+if_boxsum_0_y:
+    lw $t4, 356($sp)
+    lw $t5, 0($t4)
+    li $t1, 0
+    bne $t5, $t1, if_boxsum_5_y
+    lw $t4, 348($sp)
+    sw $t1, 0($t4)
+    lw $t4, 352($sp)
+    li $t1, 4
+    sw $t1, 0($t4)
+    lw $t4, 356($sp)
+    li $t1, 3
+    sw $t1, 0($t4)
+    li $v0, 1
+    j end_if_arr_y
+if_boxsum_5_y:
+    li $t1, 5
+    bne $t5, $t1, if_boxsum_e_y
+    lw $t4, 348($sp)
+    sw $t1, 0($t4)
+    lw $t4, 352($sp)
+    li $t1, 4
+    sw $t1, 0($t4)
+    lw $t4, 356($sp)
+    li $t1, 3
+    sw $t1, 0($t4)
+    li $v0, 1
+    j end_if_arr_y
+if_boxsum_e_y:
+    li $v0, 0
+    j end_if_arr
+if_arr_e_y:
+    lw $t4, 348($sp)
+    li $t1, 0
+    sw $t1, 0($t4)
+    lw $t4, 352($sp)
+    li $t1, 4
+    sw $t1, 0($t4)
+    li $v0, 1
+end_if_arr_y:
+    sw $a0, 340($sp)
+    jr $ra
+
+
+RepaintBoxes:
+    ; $a0 --> mem direction of map
+    ;#show $a0
+    sw $ra, 344($sp)
+    li $a1, 1 ; $a1 --> x
+    li $a2, 1; $a2 --> y
+    li $t1, 0 ; --> i
+for_i_rep:
+    slti $t0, $t1, 9
+    beq $t0, $zero, end_for_i_rep
+    li $t2, 0 ; --> j
+for_j_rep:
+    slti $t0, $t2, 9
+    beq $t0, $zero, end_for_j_rep
+    lw $a0, 340($sp)
+    ;#show $a0
+    li $t0, 36
+    li $t3, 0
+    mult $t1, $t0 ; --> i * 36
+    mflo $t3
+    sll $t0, $t2, 2 ; --> j * 4
+    add $t3, $t0, $t3
+    add $t3, $a0, $t3
+    lw $t4, 0($t3)
+    ;#show $t4
+    li $t0, 1 ;--> constant 1
+    sw $t1, 328($sp) ;--> store i var in stack
+    sw $t2, 332($sp) ;--> store j var in stack
+    ;#show $a0
+    sw $a0, 340($sp)
+
+if_box_repaint:
+    li $t0, 3
+    bne $t4, $t0, end_ifs_rep
+    jal Box
+end_ifs_rep:
+    lw $t1, 328($sp)
+    lw $t2, 332($sp)
+    addi $a1, $a1, 7
+    addi $t2, $t2, 1
+    j for_j_rep
+end_for_j_rep:
+    li $a1, 1
+    addi $a2, $a2, 3
+    addi $t1, $t1, 1
+    j for_i_rep
+end_for_i_rep:
+    lw $ra, 344($sp)
+    jr $ra

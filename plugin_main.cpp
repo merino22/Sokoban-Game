@@ -675,9 +675,19 @@ extern "C" ErrorCode handleSyscall(uint32_t *regs, void *mem, MemoryMap *mem_map
         {
             switch(a0)
             {
+                case 32:
+                {
+                    std::cout << " ";
+                    return ErrorCode::Ok;
+                }
                 case 47:
                 {
                     std::cout << "/";
+                    return ErrorCode::Ok;
+                }
+                case 88:
+                {
+                    std::cout << "X";
                     return ErrorCode::Ok;
                 }
                 case 92:
@@ -773,6 +783,16 @@ extern "C" ErrorCode handleSyscall(uint32_t *regs, void *mem, MemoryMap *mem_map
                 case 220:
                 {
                     std::cout << "▄";
+                    return ErrorCode::Ok;
+                }
+                case 228:
+                {
+                    std::cout << "õ";
+                    return ErrorCode::Ok;
+                }
+                case 248:
+                {
+                    std::cout << "°";
                     return ErrorCode::Ok;
                 }
             }
