@@ -50,7 +50,6 @@ start:
     syscall
     
     li $t0, 2
-    ;jal Block
 
 if_exit:
     bne $t1, $t0, if_play
@@ -74,37 +73,47 @@ if_play:
     move $a1, $t1
     move $a2, $t2
     syscall
-    move $a3, $s0 ; --> current level(will break program eventually)
 
-    ;#show $t1
-    ;jal Player
-    ;li $v0, 51
-    ;syscall
-    ;jal ErasePlayer
     jal generateMap
     jal printMap
     li $v0, 51 ; --> call rlutil::locate(x,y)
     li $a1, 29
     li $a2, 13
     syscall
+
 while_play:
-    ;#show $t0
+if_lvl_passed:
+    jal checkLevelPassed
+    li $t0, 1
+    ;#show $v0
+    beq $v0, $zero, end_if_lvl_passed
+    addi $s0, $s0, 1
+    li $v0, 30
+    syscall
+    li $v0, 53
+    syscall
+if_lvl_2:
+    li $t0, 2
+    bne $s0, $t0, end_if_lvl_2
+    jal generateMap
+    jal printMap
+    li $v0, 51 ; --> call rlutil::locate(x,y)
+    li $a1, 22
+    li $a2, 7
+    syscall
+end_if_lvl_2:
+end_if_lvl_passed:
     li $v0, 31 ;--> call kbhit()
     syscall
-    ;#show $a0
-    ;lw $a0, 340($sp)
-    ;#show $a0
-    ;#show $a0
-    ;lw $t0, 340($sp)
-    ;#show $t0
+    li $t0, 31
 if_kbhit:
-    beq $v0, $zero, end_if_kbhit
+    ;#show $a1
+    ;#show $a2
+    beq $v0, $t0, end_if_kbhit
     ;#show $v0
     sw $v0, 360($sp)
     ;#show $v0
     li $v0, 51 ;--> call rlutil::locate
-    ;#show $a1
-    ;#show $a2
     syscall
     jal ErasePlayer
     lw $v0, 360($sp)
@@ -114,6 +123,7 @@ if_kb_a:
     li $a3, -7
     jal checkPosX
     beq $v0, $zero, if_kb_end
+    jal checkBoxSpot
     addi $a1, $a1, -7
     j if_kb_end
 if_kb_d:
@@ -122,6 +132,8 @@ if_kb_d:
     li $a3, 7
     jal checkPosX
     beq $v0, $zero, if_kb_end
+    ; --> repaint boxspot function
+    jal checkBoxSpot
     addi $a1, $a1, 7
     j if_kb_end
 if_kb_w:
@@ -130,6 +142,7 @@ if_kb_w:
     li $a3, -3
     jal checkPosY
     beq $v0, $zero, if_kb_end
+    jal checkBoxSpot
     addi $a2, $a2, -3
     j if_kb_end
 if_kb_s:
@@ -138,25 +151,27 @@ if_kb_s:
     li $a3, 3
     jal checkPosY
     beq $v0, $zero, if_kb_end
-    ; --> LOGIC FOR MOVEMENT
+    jal checkBoxSpot
     addi $a2, $a2, 3
 if_kb_end:
     li $v0, 51
     syscall
-    ;#show $v0
     jal Player
     sw $a1, 364($sp)
     sw $a2, 368($sp)
     jal RepaintBoxes
     lw $a1, 364($sp)
     lw $a2, 368($sp)
-    ;#show $a1
-    ;#show $a2
-    ;#show $a1
-    ;#show $a2
 end_if_kbhit:
     j while_play
 end_while_play:
     lw $ra, 324($sp)
     addi $sp, $sp, 372
+    ;li $v0, 10
+    ;syscall
+    ;li $v0, 30
+    ;syscall
+    ;li $v0, 53 ; --> call rlutil::cls()
+    ;syscall
+    ;j start
     jr $ra
