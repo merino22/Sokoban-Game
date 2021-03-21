@@ -4,7 +4,7 @@
     str2: .byte "1. Play Game", 0
     str3: .byte "2. Quit Game", 0
     str4: .byte "Selection Option: ", 0
-    str5: .byte "Exiting Game... Thankxd you for Playing!", 0
+    str5: .byte "Exiting Game... Thank you for Playing!", 0
     arcade_str: .byte "1. Arcade Mode", 0
     lvl_select_str: .byte "2. Level Selection", 0
 
@@ -80,7 +80,6 @@ if_play:
     li $a1, 29
     li $a2, 13
     syscall
-
 while_play:
 if_lvl_passed:
     jal checkLevelPassed
@@ -88,31 +87,165 @@ if_lvl_passed:
     ;#show $v0
     beq $v0, $zero, end_if_lvl_passed
     addi $s0, $s0, 1
-    li $v0, 30
+    
+if_lvl_1:
+    li $t0, 1
+    bne $s0, $t0, end_if_lvl_1
+    li $v0, 30 ; --> call rlutil::resetColor()
     syscall
-    li $v0, 53
+    li $v0, 53 ; --> call rlutil::cls()
     syscall
+    jal generateMap
+    jal printMap
+    li $v0, 51 ; --> call rlutil::locate(x,y)
+    li $a1, 29
+    li $a2, 13
+    syscall
+    j end_if_lvl_passed
+end_if_lvl_1:
 if_lvl_2:
     li $t0, 2
     bne $s0, $t0, end_if_lvl_2
+    li $v0, 30 ; --> call rlutil::resetColor()
+    syscall
+    li $v0, 53 ; --> call rlutil::cls()
+    syscall
     jal generateMap
     jal printMap
     li $v0, 51 ; --> call rlutil::locate(x,y)
     li $a1, 22
     li $a2, 7
     syscall
+    j end_if_lvl_passed
 end_if_lvl_2:
+if_lvl_3:
+    li $t0, 3
+    bne $s0, $t0, end_if_lvl_3
+    li $v0, 30 ; --> call rlutil::resetColor()
+    syscall
+    li $v0, 53 ; --> call rlutil::cls()
+    syscall
+    jal generateMap
+    jal printMap
+    li $v0, 51 ; --> call rlutil::locate(x,y)
+    li $a1, 15
+    li $a2, 7
+    syscall
+    j end_if_lvl_passed
+end_if_lvl_3:
+if_lvl_4:
+    li $t0, 4
+    bne $s0, $t0, end_if_lvl_4
+    li $v0, 30 ; --> call rlutil::resetColor()
+    syscall
+    li $v0, 53 ; --> call rlutil::cls()
+    syscall
+    jal generateMap
+    jal printMap
+    li $v0, 51 ; --> call rlutil::locate(x,y)
+    li $a1, 15
+    li $a2, 4
+    syscall
+    j end_if_lvl_passed
+end_if_lvl_4:
+if_lvl_5:
+    li $t0, 5
+    bne $s0, $t0, end_if_lvl_5
+    li $v0, 30 ; --> call rlutil::resetColor()
+    syscall
+    li $v0, 53 ; --> call rlutil::cls()
+    syscall
+    jal generateMap
+    jal printMap
+    li $v0, 51 ; --> call rlutil::locate(x,y)
+    li $a1, 8
+    li $a2, 10
+    syscall
+    j end_if_lvl_passed
+end_if_lvl_5:
+if_lvl_6:
+    li $t0, 6
+    bne $s0, $t0, end_if_lvl_6
+    li $v0, 30 ; --> call rlutil::resetColor()
+    syscall
+    li $v0, 53 ; --> call rlutil::cls()
+    syscall
+    jal generateMap
+    jal printMap
+    li $v0, 51 ; --> call rlutil::locate(x,y)
+    li $a1, 36
+    li $a2, 4
+    syscall
+    j end_if_lvl_passed
+end_if_lvl_6:
+if_lvl_7:
+    li $t0, 7
+    bne $s0, $t0, end_if_lvl_7
+    li $v0, 30 ; --> call rlutil::resetColor()
+    syscall
+    li $v0, 53 ; --> call rlutil::cls()
+    syscall
+    jal generateMap
+    jal printMap
+    li $v0, 51 ; --> call rlutil::locate(x,y)
+    li $a1, 22
+    li $a2, 19
+    syscall
+    j end_if_lvl_passed
+end_if_lvl_7:
+if_lvl_8:
+    li $t0, 8
+    bne $s0, $t0, end_if_lvl_8
+    li $v0, 30 ; --> call rlutil::resetColor()
+    syscall
+    li $v0, 53 ; --> call rlutil::cls()
+    syscall
+    jal generateMap
+    jal printMap
+    li $v0, 51 ; --> call rlutil::locate(x,y)
+    li $a1, 8
+    li $a2, 7
+    syscall
+    j end_if_lvl_passed
+end_if_lvl_8:
+if_lvl_9:
+    li $t0, 9
+    bne $s0, $t0, end_if_lvl_9
+    li $v0, 30 ; --> call rlutil::resetColor()
+    syscall
+    li $v0, 53 ; --> call rlutil::cls()
+    syscall
+    jal generateMap
+    jal printMap
+    li $v0, 51 ; --> call rlutil::locate(x,y)
+    li $a1, 22
+    li $a2, 16
+    syscall
+    j end_if_lvl_passed
+end_if_lvl_9:
+if_lvl_10:
+    li $t0, 10
+    bne $s0, $t0, end_if_lvl_10
+    li $v0, 30 ; --> call rlutil::resetColor()
+    syscall
+    li $v0, 53 ; --> call rlutil::cls()
+    syscall
+    jal generateMap
+    jal printMap
+    li $v0, 51 ; --> call rlutil::locate(x,y)
+    li $a1, 29
+    li $a2, 19
+    syscall
+end_if_lvl_10:
 end_if_lvl_passed:
     li $v0, 31 ;--> call kbhit()
     syscall
     li $t0, 31
+    ;#show $v0
+
 if_kbhit:
-    ;#show $a1
-    ;#show $a2
     beq $v0, $t0, end_if_kbhit
-    ;#show $v0
     sw $v0, 360($sp)
-    ;#show $v0
     li $v0, 51 ;--> call rlutil::locate
     syscall
     jal ErasePlayer
@@ -147,12 +280,16 @@ if_kb_w:
     j if_kb_end
 if_kb_s:
     li $t3, 115
-    bne $v0, $t3, end_if_kbhit
+    bne $v0, $t3, if_kb_space
     li $a3, 3
     jal checkPosY
     beq $v0, $zero, if_kb_end
     jal checkBoxSpot
     addi $a2, $a2, 3
+if_kb_space:
+    li $t3, 32
+    bne $v0, $t3, if_kb_end
+    j if_lvl_1
 if_kb_end:
     li $v0, 51
     syscall

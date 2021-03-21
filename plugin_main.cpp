@@ -817,19 +817,6 @@ extern "C" ErrorCode handleSyscall(uint32_t *regs, void *mem, MemoryMap *mem_map
         {
             kbhit();
             regs[Register::v0] = getch();
-            /*
-            while(1)
-            {
-                if(kbhit())
-                {
-                    regs[Register::v0] = 1;
-                    char sk = getch();
-                    std::cout << "sk: " << sk;
-                }else{
-                    regs[Register::v0] = 0;
-                }
-            }
-            */
             return ErrorCode::Ok;
         }
         case 32:

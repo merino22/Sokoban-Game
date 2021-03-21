@@ -422,14 +422,13 @@ lvl_1_spot_4:
     jal sortBoxspotArray
     jal Boxspot
 end_lvl_1_spots:
-
+    j end_if_lvl
 if_lvl_2:
     li $t3, 2
-    bne $s0, $t3, end_if_lvl 
+    bne $s0, $t3, if_lvl_3 
 lvl_2_spot_1:
     li $t1, 50 ;--> x
     li $t2, 10;--> y
-    ;j end_if_lvl
     bne $a1, $t1, lvl_2_spot_2
     bne $a2, $t2, lvl_2_spot_2
     jal sortBoxspotArray
@@ -451,12 +450,369 @@ lvl_2_spot_3:
     jal sortBoxspotArray
     jal Boxspot
 end_lvl_2_spots:
+    j end_if_lvl
 
 if_lvl_3:
+    li $t3, 3
+    bne $s0, $t3, if_lvl_4
+lvl_3_spot_1:
+    li $t1, 8 ;--> x
+    li $t2, 16;--> y
+    bne $a1, $t1, lvl_3_spot_2
+    bne $a2, $t2, lvl_3_spot_2
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_3_spots
+lvl_3_spot_2:
+    li $t1, 15 ;--> x
+    li $t2, 19;--> y
+    bne $a1, $t1, lvl_3_spot_3
+    bne $a2, $t2, lvl_3_spot_3
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_3_spots
+lvl_3_spot_3:
+    li $t1, 15 ;--> x
+    li $t2, 19;--> y
+    bne $a1, $t1, lvl_3_spot_4
+    bne $a2, $t2, lvl_3_spot_4
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_3_spots
+lvl_3_spot_4:
+    li $t1, 22 ;--> x
+    li $t2, 19;--> y
+    bne $a1, $t1, lvl_3_spot_5
+    bne $a2, $t2, lvl_3_spot_5
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_3_spots
+lvl_3_spot_5:
+    li $t1, 29 ;--> x
+    li $t2, 19;--> y
+    bne $a1, $t1, end_lvl_3_spots
+    bne $a2, $t2, end_lvl_3_spots
+    jal sortBoxspotArray
+    jal Boxspot
+end_lvl_3_spots:
+    j end_if_lvl
 
-;if_lvl_4:
+if_lvl_4:
+    li $t3, 4
+    bne $s0, $t3, if_lvl_5
+lvl_4_spot_1:
+    li $t1, 8 ;--> x
+    li $t2, 13;--> y
+    bne $a1, $t1, lvl_4_spot_2
+    bne $a2, $t2, lvl_4_spot_2
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_4_spots
+lvl_4_spot_2:
+    li $t1, 8 ;--> x
+    li $t2, 16;--> y
+    bne $a1, $t1, lvl_4_spot_3
+    bne $a2, $t2, lvl_4_spot_3
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_4_spots
+lvl_4_spot_3:
+    li $t1, 8 ;--> x
+    li $t2, 19;--> y
+    bne $a1, $t1, end_lvl_4_spots
+    bne $a2, $t2, end_lvl_4_spots
+    jal sortBoxspotArray
+    jal Boxspot
+end_lvl_4_spots:
+    j end_if_lvl
 
-;if_lvl_5:
+if_lvl_5:
+    li $t3, 5
+    bne $s0, $t3, if_lvl_6
+lvl_5_spot_1:
+    li $t1, 29 ;--> x
+    li $t2, 10;--> y
+    bne $a1, $t1, lvl_5_spot_2
+    bne $a2, $t2, lvl_5_spot_2
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_5_spots
+lvl_5_spot_2:
+    li $t1, 36 ;--> x
+    li $t2, 10;--> y
+    bne $a1, $t1, lvl_5_spot_3
+    bne $a2, $t2, lvl_5_spot_3
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_5_spots
+lvl_5_spot_3:
+    li $t1, 22 ;--> x
+    li $t2, 13;--> y
+    bne $a1, $t1, lvl_5_spot_4
+    bne $a2, $t2, lvl_5_spot_4
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_5_spots
+lvl_5_spot_4:
+    li $t1, 29 ;--> x
+    li $t2, 13;--> y
+    bne $a1, $t1, lvl_5_spot_5
+    bne $a2, $t2, lvl_5_spot_5
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_5_spots
+lvl_5_spot_5:
+    li $t1, 36 ;--> x
+    li $t2, 13;--> y
+    bne $a1, $t1, end_lvl_5_spots
+    bne $a2, $t2, end_lvl_5_spots
+    jal sortBoxspotArray
+    jal Boxspot
+end_lvl_5_spots:
+    j end_if_lvl
+
+if_lvl_6:
+    li $t3, 6
+    bne $s0, $t3, if_lvl_7
+lvl_6_spot_1:
+    li $t1, 29 ;--> x
+    li $t2, 7;--> y
+    ;j end_if_lvl
+    bne $a1, $t1, lvl_6_spot_2
+    bne $a2, $t2, lvl_6_spot_2
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_6_spots
+lvl_6_spot_2:
+    li $t1, 22 ;--> x
+    li $t2, 10;--> y
+    bne $a1, $t1, lvl_6_spot_3
+    bne $a2, $t2, lvl_6_spot_3
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_6_spots
+lvl_6_spot_3:
+    li $t1, 36 ;--> x
+    li $t2, 10;--> y
+    bne $a1, $t1, lvl_6_spot_4
+    bne $a2, $t2, lvl_6_spot_4
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_6_spots
+lvl_6_spot_4:
+    li $t1, 29 ;--> x
+    li $t2, 13;--> y
+    bne $a1, $t1, end_lvl_6_spots
+    bne $a2, $t2, end_lvl_6_spots
+    jal sortBoxspotArray
+    jal Boxspot
+end_lvl_6_spots:
+    j end_if_lvl
+if_lvl_7:
+    li $t3, 7
+    bne $s0, $t3, if_lvl_8
+lvl_7_spot_1:
+    li $t1, 22 ;--> x
+    li $t2, 4;--> y
+    ;j end_if_lvl
+    bne $a1, $t1, lvl_7_spot_2
+    bne $a2, $t2, lvl_7_spot_2
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_7_spots
+lvl_7_spot_2:
+    li $t1, 29 ;--> x
+    li $t2, 4;--> y
+    bne $a1, $t1, lvl_7_spot_3
+    bne $a2, $t2, lvl_7_spot_3
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_7_spots
+lvl_7_spot_3:
+    li $t1, 29 ;--> x
+    li $t2, 7;--> y
+    bne $a1, $t1, lvl_7_spot_4
+    bne $a2, $t2, lvl_7_spot_4
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_7_spots
+lvl_7_spot_4:
+    li $t1, 36 ;--> x
+    li $t2, 10;--> y
+    bne $a1, $t1, end_lvl_7_spots
+    bne $a2, $t2, end_lvl_7_spots
+    jal sortBoxspotArray
+    jal Boxspot
+end_lvl_7_spots:
+    j end_if_lvl
+if_lvl_8:
+    li $t3, 8
+    bne $s0, $t3, if_lvl_9
+lvl_8_spot_1:
+    li $t1, 22 ;--> x
+    li $t2, 7 ;--> y
+    ;j end_if_lvl
+    bne $a1, $t1, lvl_8_spot_2
+    bne $a2, $t2, lvl_8_spot_2
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_8_spots
+lvl_8_spot_2:
+    li $t1, 29 ;--> x
+    li $t2, 7 ;--> y
+    bne $a1, $t1, lvl_8_spot_3
+    bne $a2, $t2, lvl_8_spot_3
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_8_spots
+lvl_8_spot_3:
+    li $t1, 22 ;--> x
+    li $t2, 10 ;--> y
+    bne $a1, $t1, lvl_8_spot_4
+    bne $a2, $t2, lvl_8_spot_4
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_8_spots
+lvl_8_spot_4:
+    li $t1, 29 ;--> x
+    li $t2, 10 ;--> y
+    bne $a1, $t1, lvl_8_spot_5
+    bne $a2, $t2, lvl_8_spot_5
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_8_spots
+lvl_8_spot_5:
+    li $t1, 22 ;--> x
+    li $t2, 13 ;--> y
+    bne $a1, $t1, lvl_8_spot_6
+    bne $a2, $t2, lvl_8_spot_6
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_8_spots
+lvl_8_spot_6:
+    li $t1, 29 ;--> x
+    li $t2, 13 ;--> y
+    bne $a1, $t1, end_lvl_8_spots
+    bne $a2, $t2, end_lvl_8_spots
+    jal sortBoxspotArray
+    jal Boxspot
+end_lvl_8_spots:
+    j end_if_lvl
+if_lvl_9:
+    li $t3, 9
+    bne $s0, $t3, if_lvl_10
+lvl_9_spot_1:
+    li $t1, 29 ;--> x
+    li $t2, 10 ;--> y
+    ;j end_if_lvl
+    bne $a1, $t1, lvl_9_spot_2
+    bne $a2, $t2, lvl_9_spot_2
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_9_spots
+lvl_9_spot_2:
+    li $t1, 36 ;--> x
+    li $t2, 10 ;--> y
+    bne $a1, $t1, lvl_9_spot_3
+    bne $a2, $t2, lvl_9_spot_3
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_9_spots
+lvl_9_spot_3:
+    li $t1, 29 ;--> x
+    li $t2, 13 ;--> y
+    bne $a1, $t1, lvl_9_spot_4
+    bne $a2, $t2, lvl_9_spot_4
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_9_spots
+lvl_9_spot_4:
+    li $t1, 36 ;--> x
+    li $t2, 13 ;--> y
+    bne $a1, $t1, end_lvl_9_spots
+    bne $a2, $t2, end_lvl_9_spots
+    jal sortBoxspotArray
+    jal Boxspot
+end_lvl_9_spots:
+    j end_if_lvl
+if_lvl_10:
+    li $t3, 10
+    bne $s0, $t3, if_lvl_11
+lvl_10_spot_1:
+    li $t1, 8 ;--> x
+    li $t2, 4 ;--> y
+    bne $a1, $t1, lvl_10_spot_2
+    bne $a2, $t2, lvl_10_spot_2
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_10_spots
+lvl_10_spot_2:
+    li $t1, 15 ;--> x
+    li $t2, 4 ;--> y
+    bne $a1, $t1, lvl_10_spot_3
+    bne $a2, $t2, lvl_10_spot_3
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_8_spots
+lvl_10_spot_3:
+    li $t1, 29 ;--> x
+    li $t2, 4 ;--> y
+    bne $a1, $t1, lvl_10_spot_4
+    bne $a2, $t2, lvl_10_spot_4
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_10_spots
+lvl_10_spot_4:
+    li $t1, 36 ;--> x
+    li $t2, 4 ;--> y
+    bne $a1, $t1, lvl_10_spot_5
+    bne $a2, $t2, lvl_10_spot_5
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_10_spots
+lvl_10_spot_5:
+    li $t1, 8 ;--> x
+    li $t2, 7 ;--> y
+    bne $a1, $t1, lvl_10_spot_6
+    bne $a2, $t2, lvl_10_spot_6
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_10_spots
+lvl_10_spot_6:
+    li $t1, 15 ;--> x
+    li $t2, 7 ;--> y
+    bne $a1, $t1, lvl_10_spot_7
+    bne $a2, $t2, lvl_10_spot_7
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_10_spots
+lvl_10_spot_7:
+    li $t1, 29 ;--> x
+    li $t2, 7 ;--> y
+    bne $a1, $t1, lvl_10_spot_8
+    bne $a2, $t2, lvl_10_spot_8
+    jal sortBoxspotArray
+    jal Boxspot
+    j end_lvl_10_spots
+lvl_10_spot_8:
+    li $t1, 36 ;--> x
+    li $t2, 7 ;--> y
+    bne $a1, $t1, end_lvl_10_spots
+    bne $a2, $t2, end_lvl_10_spots
+    jal sortBoxspotArray
+    jal Boxspot
+end_lvl_10_spots:
+    j end_if_lvl
+
+if_lvl_11:
+
+if_lvl_12:
+
+if_lvl_13:
+
+if_lvl_14:
+
+if_lvl_15:
 
 end_if_lvl:
     lw $ra, 344($sp)
@@ -872,8 +1228,1496 @@ if_second_level:
     move $a0, $sp
     sw $a0, 340($sp)
     j end_levels
+
 if_third_level:
     li $t0, 3
+    bne $s0, $t0, if_forth_level
+    ;--- row 0
+    li $t0, 1
+    sw $t0, 0($sp)
+    li $t0, 2
+    sw $t0, 4($sp)
+    li $t0, 2
+    sw $t0, 8($sp)
+    li $t0, 2
+    sw $t0, 12($sp)
+    li $t0, 2
+    sw $t0, 16($sp)
+    li $t0, 1
+    sw $t0, 20($sp)
+    li $t0, 1
+    sw $t0, 24($sp)
+    li $t0, 1
+    sw $t0, 28($sp)
+    li $t0, 1
+    sw $t0, 32($sp)
+
+    ;--- row 1
+    li $t0, 2
+    sw $t0, 36($sp)
+    li $t0, 2
+    sw $t0, 40($sp)
+    li $t0, 0
+    sw $t0, 44($sp)
+    li $t0, 0
+    sw $t0, 48($sp)
+    li $t0, 2
+    sw $t0, 52($sp)
+    li $t0, 1
+    sw $t0, 56($sp)
+    li $t0, 1
+    sw $t0, 60($sp)
+    li $t0, 1
+    sw $t0, 64($sp)
+    li $t0, 1
+    sw $t0, 68($sp)
+
+    ;--- row 2
+    li $t0, 2
+    sw $t0, 72($sp)
+    li $t0, 0
+    sw $t0, 76($sp)
+    li $t0, 4
+    sw $t0, 80($sp)
+    li $t0, 3
+    sw $t0, 84($sp)
+    li $t0, 2
+    sw $t0, 88($sp)
+    li $t0, 1
+    sw $t0, 92($sp)
+    li $t0, 1
+    sw $t0, 96($sp)
+    li $t0, 1
+    sw $t0, 100($sp)
+    li $t0, 1
+    sw $t0, 104($sp)
+
+    ;--- row 3
+    li $t0, 2
+    sw $t0, 108($sp)
+    li $t0, 2
+    sw $t0, 112($sp)
+    li $t0, 3
+    sw $t0, 116($sp)
+    li $t0, 0
+    sw $t0, 120($sp)
+    li $t0, 2
+    sw $t0, 124($sp)
+    li $t0, 2
+    sw $t0, 128($sp)
+    li $t0, 1
+    sw $t0, 132($sp)
+    li $t0, 1
+    sw $t0, 136($sp)
+    li $t0, 1
+    sw $t0, 140($sp)
+
+    ;---row 4
+    li $t0, 2
+    sw $t0, 144($sp)
+    li $t0, 2
+    sw $t0, 148($sp)
+    li $t0, 0
+    sw $t0, 152($sp)
+    li $t0, 3
+    sw $t0, 156($sp)
+    li $t0, 0
+    sw $t0, 160($sp)
+    li $t0, 2
+    sw $t0, 164($sp)
+    li $t0, 1
+    sw $t0, 168($sp)
+    li $t0, 1
+    sw $t0, 172($sp)
+    li $t0, 1
+    sw $t0, 176($sp)
+
+    ;--- row 5
+    li $t0, 2
+    sw $t0, 180($sp)
+    li $t0, 5
+    sw $t0, 184($sp)
+    li $t0, 3
+    sw $t0, 188($sp)
+    li $t0, 0
+    sw $t0, 192($sp)
+    li $t0, 0 ;-- aqui
+    sw $t0, 196($sp)
+    li $t0, 2
+    sw $t0, 200($sp)
+    li $t0, 1
+    sw $t0, 204($sp)
+    li $t0, 1
+    sw $t0, 208($sp)
+    li $t0, 1
+    sw $t0, 212($sp)
+
+    ;--- row 6
+    li $t0, 2
+    sw $t0, 216($sp)
+    li $t0, 5
+    sw $t0, 220($sp)
+    li $t0, 5
+    sw $t0, 224($sp)
+    li $t0, 3
+    sw $t0, 228($sp)
+    li $t0, 5
+    sw $t0, 232($sp)
+    li $t0, 2
+    sw $t0, 236($sp)
+    li $t0, 1
+    sw $t0, 240($sp)
+    li $t0, 1
+    sw $t0, 244($sp)
+    li $t0, 1
+    sw $t0, 248($sp)
+
+    ;--- row 7
+    li $t0, 2
+    sw $t0, 252($sp)
+    li $t0, 2
+    sw $t0, 256($sp)
+    li $t0, 2
+    sw $t0, 260($sp)
+    li $t0, 2
+    sw $t0, 264($sp)
+    li $t0, 2
+    sw $t0, 268($sp)
+    li $t0, 2
+    sw $t0, 272($sp)
+    li $t0, 1
+    sw $t0, 276($sp)
+    li $t0, 1
+    sw $t0, 280($sp)
+    li $t0, 1
+    sw $t0, 284($sp)
+
+    ;--- row 8
+    li $t0, 1
+    sw $t0, 288($sp)
+    li $t0, 1
+    sw $t0, 292($sp)
+    li $t0, 1
+    sw $t0, 296($sp)
+    li $t0, 1
+    sw $t0, 300($sp)
+    li $t0, 1
+    sw $t0, 304($sp)
+    li $t0, 1
+    sw $t0, 308($sp)
+    li $t0, 1
+    sw $t0, 312($sp)
+    li $t0, 1
+    sw $t0, 316($sp)
+    li $t0, 1
+    sw $t0, 320($sp)
+
+    move $a0, $sp
+    sw $a0, 340($sp)
+    j end_levels
+
+if_forth_level:
+    li $t0, 4
+    bne $s0, $t0, if_fifth_level
+    ;--- row 0
+    li $t0, 1
+    sw $t0, 0($sp)
+    li $t0, 2
+    sw $t0, 4($sp)
+    li $t0, 2
+    sw $t0, 8($sp)
+    li $t0, 2
+    sw $t0, 12($sp)
+    li $t0, 2
+    sw $t0, 16($sp)
+    li $t0, 1
+    sw $t0, 20($sp)
+    li $t0, 1
+    sw $t0, 24($sp)
+    li $t0, 1
+    sw $t0, 28($sp)
+    li $t0, 1
+    sw $t0, 32($sp)
+
+    ;--- row 1
+    li $t0, 1
+    sw $t0, 36($sp)
+    li $t0, 2
+    sw $t0, 40($sp)
+    li $t0, 4
+    sw $t0, 44($sp)
+    li $t0, 0
+    sw $t0, 48($sp)
+    li $t0, 2
+    sw $t0, 52($sp)
+    li $t0, 2
+    sw $t0, 56($sp)
+    li $t0, 2
+    sw $t0, 60($sp)
+    li $t0, 1
+    sw $t0, 64($sp)
+    li $t0, 1
+    sw $t0, 68($sp)
+
+    ;--- row 2
+    li $t0, 1
+    sw $t0, 72($sp)
+    li $t0, 2
+    sw $t0, 76($sp)
+    li $t0, 0
+    sw $t0, 80($sp)
+    li $t0, 3
+    sw $t0, 84($sp)
+    li $t0, 0
+    sw $t0, 88($sp)
+    li $t0, 0
+    sw $t0, 92($sp)
+    li $t0, 2
+    sw $t0, 96($sp)
+    li $t0, 1
+    sw $t0, 100($sp)
+    li $t0, 1
+    sw $t0, 104($sp)
+
+    ;--- row 3
+    li $t0, 2
+    sw $t0, 108($sp)
+    li $t0, 2
+    sw $t0, 112($sp)
+    li $t0, 2
+    sw $t0, 116($sp)
+    li $t0, 0 ; --aqui
+    sw $t0, 120($sp)
+    li $t0, 2
+    sw $t0, 124($sp)
+    li $t0, 0 ; --aqui
+    sw $t0, 128($sp)
+    li $t0, 2
+    sw $t0, 132($sp)
+    li $t0, 2
+    sw $t0, 136($sp)
+    li $t0, 1
+    sw $t0, 140($sp)
+
+    ;---row 4
+    li $t0, 2
+    sw $t0, 144($sp)
+    li $t0, 5
+    sw $t0, 148($sp)
+    li $t0, 2
+    sw $t0, 152($sp)
+    li $t0, 0 ;-- aqui
+    sw $t0, 156($sp)
+    li $t0, 2
+    sw $t0, 160($sp)
+    li $t0, 0
+    sw $t0, 164($sp)
+    li $t0, 0
+    sw $t0, 168($sp)
+    li $t0, 2
+    sw $t0, 172($sp)
+    li $t0, 1
+    sw $t0, 176($sp)
+
+    ;--- row 5
+    li $t0, 2
+    sw $t0, 180($sp)
+    li $t0, 5
+    sw $t0, 184($sp)
+    li $t0, 3
+    sw $t0, 188($sp)
+    li $t0, 0
+    sw $t0, 192($sp)
+    li $t0, 0 ;-- aqui
+    sw $t0, 196($sp)
+    li $t0, 2
+    sw $t0, 200($sp)
+    li $t0, 0
+    sw $t0, 204($sp)
+    li $t0, 2
+    sw $t0, 208($sp)
+    li $t0, 1
+    sw $t0, 212($sp)
+
+    ;--- row 6
+    li $t0, 2
+    sw $t0, 216($sp)
+    li $t0, 5
+    sw $t0, 220($sp)
+    li $t0, 0
+    sw $t0, 224($sp)
+    li $t0, 0
+    sw $t0, 228($sp)
+    li $t0, 0
+    sw $t0, 232($sp)
+    li $t0, 3
+    sw $t0, 236($sp)
+    li $t0, 0
+    sw $t0, 240($sp)
+    li $t0, 2
+    sw $t0, 244($sp)
+    li $t0, 1
+    sw $t0, 248($sp)
+
+    ;--- row 7
+    li $t0, 2
+    sw $t0, 252($sp)
+    li $t0, 2
+    sw $t0, 256($sp)
+    li $t0, 2
+    sw $t0, 260($sp)
+    li $t0, 2
+    sw $t0, 264($sp)
+    li $t0, 2
+    sw $t0, 268($sp)
+    li $t0, 2
+    sw $t0, 272($sp)
+    li $t0, 2
+    sw $t0, 276($sp)
+    li $t0, 2
+    sw $t0, 280($sp)
+    li $t0, 1
+    sw $t0, 284($sp)
+
+    ;--- row 8
+    li $t0, 1
+    sw $t0, 288($sp)
+    li $t0, 1
+    sw $t0, 292($sp)
+    li $t0, 1
+    sw $t0, 296($sp)
+    li $t0, 1
+    sw $t0, 300($sp)
+    li $t0, 1
+    sw $t0, 304($sp)
+    li $t0, 1
+    sw $t0, 308($sp)
+    li $t0, 1
+    sw $t0, 312($sp)
+    li $t0, 1
+    sw $t0, 316($sp)
+    li $t0, 1
+    sw $t0, 320($sp)
+
+    move $a0, $sp
+    sw $a0, 340($sp)
+    j end_levels
+if_fifth_level:
+    li $t0, 5
+    bne $s0, $t0, if_sixth_level
+    ;--- row 0
+    li $t0, 1
+    sw $t0, 0($sp)
+    li $t0, 1
+    sw $t0, 4($sp)
+    li $t0, 2
+    sw $t0, 8($sp)
+    li $t0, 2
+    sw $t0, 12($sp)
+    li $t0, 2
+    sw $t0, 16($sp)
+    li $t0, 2
+    sw $t0, 20($sp)
+    li $t0, 2
+    sw $t0, 24($sp)
+    li $t0, 2
+    sw $t0, 28($sp)
+    li $t0, 1
+    sw $t0, 32($sp)
+
+    ;--- row 1
+    li $t0, 1
+    sw $t0, 36($sp)
+    li $t0, 1
+    sw $t0, 40($sp)
+    li $t0, 2
+    sw $t0, 44($sp)
+    li $t0, 0
+    sw $t0, 48($sp)
+    li $t0, 0
+    sw $t0, 52($sp)
+    li $t0, 0
+    sw $t0, 56($sp)
+    li $t0, 0
+    sw $t0, 60($sp)
+    li $t0, 2
+    sw $t0, 64($sp)
+    li $t0, 1
+    sw $t0, 68($sp)
+
+    ;--- row 2
+    li $t0, 2
+    sw $t0, 72($sp)
+    li $t0, 2
+    sw $t0, 76($sp)
+    li $t0, 2
+    sw $t0, 80($sp)
+    li $t0, 3
+    sw $t0, 84($sp)
+    li $t0, 3
+    sw $t0, 88($sp)
+    li $t0, 3
+    sw $t0, 92($sp)
+    li $t0, 0
+    sw $t0, 96($sp)
+    li $t0, 2
+    sw $t0, 100($sp)
+    li $t0, 1
+    sw $t0, 104($sp)
+
+    ;--- row 3
+    li $t0, 2
+    sw $t0, 108($sp)
+    li $t0, 4
+    sw $t0, 112($sp)
+    li $t0, 0
+    sw $t0, 116($sp)
+    li $t0, 3 ; --aqui
+    sw $t0, 120($sp)
+    li $t0, 5
+    sw $t0, 124($sp)
+    li $t0, 5 ; --aqui
+    sw $t0, 128($sp)
+    li $t0, 0
+    sw $t0, 132($sp)
+    li $t0, 2
+    sw $t0, 136($sp)
+    li $t0, 1
+    sw $t0, 140($sp)
+
+    ;---row 4
+    li $t0, 2
+    sw $t0, 144($sp)
+    li $t0, 0
+    sw $t0, 148($sp)
+    li $t0, 3
+    sw $t0, 152($sp)
+    li $t0, 5 ;-- aqui
+    sw $t0, 156($sp)
+    li $t0, 5
+    sw $t0, 160($sp)
+    li $t0, 5
+    sw $t0, 164($sp)
+    li $t0, 2
+    sw $t0, 168($sp)
+    li $t0, 2
+    sw $t0, 172($sp)
+    li $t0, 1
+    sw $t0, 176($sp)
+
+    ;--- row 5
+    li $t0, 2
+    sw $t0, 180($sp)
+    li $t0, 2
+    sw $t0, 184($sp)
+    li $t0, 2
+    sw $t0, 188($sp)
+    li $t0, 2
+    sw $t0, 192($sp)
+    li $t0, 0 ;-- aqui
+    sw $t0, 196($sp)
+    li $t0, 0
+    sw $t0, 200($sp)
+    li $t0, 2
+    sw $t0, 204($sp)
+    li $t0, 1
+    sw $t0, 208($sp)
+    li $t0, 1
+    sw $t0, 212($sp)
+
+    ;--- row 6
+    li $t0, 1
+    sw $t0, 216($sp)
+    li $t0, 1
+    sw $t0, 220($sp)
+    li $t0, 1
+    sw $t0, 224($sp)
+    li $t0, 2
+    sw $t0, 228($sp)
+    li $t0, 2
+    sw $t0, 232($sp)
+    li $t0, 2
+    sw $t0, 236($sp)
+    li $t0, 2
+    sw $t0, 240($sp)
+    li $t0, 1
+    sw $t0, 244($sp)
+    li $t0, 1
+    sw $t0, 248($sp)
+
+    ;--- row 7
+    li $t0, 1
+    sw $t0, 252($sp)
+    li $t0, 1
+    sw $t0, 256($sp)
+    li $t0, 1
+    sw $t0, 260($sp)
+    li $t0, 1
+    sw $t0, 264($sp)
+    li $t0, 1
+    sw $t0, 268($sp)
+    li $t0, 1
+    sw $t0, 272($sp)
+    li $t0, 1
+    sw $t0, 276($sp)
+    li $t0, 1
+    sw $t0, 280($sp)
+    li $t0, 1
+    sw $t0, 284($sp)
+
+    ;--- row 8
+    li $t0, 1
+    sw $t0, 288($sp)
+    li $t0, 1
+    sw $t0, 292($sp)
+    li $t0, 1
+    sw $t0, 296($sp)
+    li $t0, 1
+    sw $t0, 300($sp)
+    li $t0, 1
+    sw $t0, 304($sp)
+    li $t0, 1
+    sw $t0, 308($sp)
+    li $t0, 1
+    sw $t0, 312($sp)
+    li $t0, 1
+    sw $t0, 316($sp)
+    li $t0, 1
+    sw $t0, 320($sp)
+
+    move $a0, $sp
+    sw $a0, 340($sp)
+    j end_levels
+if_sixth_level:
+    li $t0, 6
+    bne $s0, $t0, if_seventh_level
+    ;--- row 0
+    li $t0, 1
+    sw $t0, 0($sp)
+    li $t0, 1
+    sw $t0, 4($sp)
+    li $t0, 2
+    sw $t0, 8($sp)
+    li $t0, 2
+    sw $t0, 12($sp)
+    li $t0, 2
+    sw $t0, 16($sp)
+    li $t0, 2
+    sw $t0, 20($sp)
+    li $t0, 2
+    sw $t0, 24($sp)
+    li $t0, 1
+    sw $t0, 28($sp)
+    li $t0, 1
+    sw $t0, 32($sp)
+
+    ;--- row 1
+    li $t0, 2
+    sw $t0, 36($sp)
+    li $t0, 2
+    sw $t0, 40($sp)
+    li $t0, 2
+    sw $t0, 44($sp)
+    li $t0, 0
+    sw $t0, 48($sp)
+    li $t0, 0
+    sw $t0, 52($sp)
+    li $t0, 4
+    sw $t0, 56($sp)
+    li $t0, 2
+    sw $t0, 60($sp)
+    li $t0, 1
+    sw $t0, 64($sp)
+    li $t0, 1
+    sw $t0, 68($sp)
+
+    ;--- row 2
+    li $t0, 2
+    sw $t0, 72($sp)
+    li $t0, 0
+    sw $t0, 76($sp)
+    li $t0, 0
+    sw $t0, 80($sp)
+    li $t0, 3
+    sw $t0, 84($sp)
+    li $t0, 5
+    sw $t0, 88($sp)
+    li $t0, 0
+    sw $t0, 92($sp)
+    li $t0, 2
+    sw $t0, 96($sp)
+    li $t0, 2
+    sw $t0, 100($sp)
+    li $t0, 1
+    sw $t0, 104($sp)
+
+    ;--- row 3
+    li $t0, 2
+    sw $t0, 108($sp)
+    li $t0, 0
+    sw $t0, 112($sp)
+    li $t0, 0
+    sw $t0, 116($sp)
+    li $t0, 5 ; --aqui
+    sw $t0, 120($sp)
+    li $t0, 3
+    sw $t0, 124($sp)
+    li $t0, 5 ; --aqui
+    sw $t0, 128($sp)
+    li $t0, 0
+    sw $t0, 132($sp)
+    li $t0, 2
+    sw $t0, 136($sp)
+    li $t0, 1
+    sw $t0, 140($sp)
+
+    ;---row 4
+    li $t0, 2
+    sw $t0, 144($sp)
+    li $t0, 2
+    sw $t0, 148($sp)
+    li $t0, 2
+    sw $t0, 152($sp)
+    li $t0, 0 ;-- aqui
+    sw $t0, 156($sp)
+    li $t0, 3
+    sw $t0, 160($sp)
+    li $t0, 3
+    sw $t0, 164($sp)
+    li $t0, 0
+    sw $t0, 168($sp)
+    li $t0, 2
+    sw $t0, 172($sp)
+    li $t0, 1
+    sw $t0, 176($sp)
+
+    ;--- row 5
+    li $t0, 1
+    sw $t0, 180($sp)
+    li $t0, 1
+    sw $t0, 184($sp)
+    li $t0, 2
+    sw $t0, 188($sp)
+    li $t0, 0
+    sw $t0, 192($sp)
+    li $t0, 0 ;-- aqui
+    sw $t0, 196($sp)
+    li $t0, 0
+    sw $t0, 200($sp)
+    li $t0, 2
+    sw $t0, 204($sp)
+    li $t0, 2
+    sw $t0, 208($sp)
+    li $t0, 1
+    sw $t0, 212($sp)
+
+    ;--- row 6
+    li $t0, 1
+    sw $t0, 216($sp)
+    li $t0, 1
+    sw $t0, 220($sp)
+    li $t0, 2
+    sw $t0, 224($sp)
+    li $t0, 2
+    sw $t0, 228($sp)
+    li $t0, 2
+    sw $t0, 232($sp)
+    li $t0, 2
+    sw $t0, 236($sp)
+    li $t0, 2
+    sw $t0, 240($sp)
+    li $t0, 1
+    sw $t0, 244($sp)
+    li $t0, 1
+    sw $t0, 248($sp)
+
+    ;--- row 7
+    li $t0, 1
+    sw $t0, 252($sp)
+    li $t0, 1
+    sw $t0, 256($sp)
+    li $t0, 1
+    sw $t0, 260($sp)
+    li $t0, 1
+    sw $t0, 264($sp)
+    li $t0, 1
+    sw $t0, 268($sp)
+    li $t0, 1
+    sw $t0, 272($sp)
+    li $t0, 1
+    sw $t0, 276($sp)
+    li $t0, 1
+    sw $t0, 280($sp)
+    li $t0, 1
+    sw $t0, 284($sp)
+
+    ;--- row 8
+    li $t0, 1
+    sw $t0, 288($sp)
+    li $t0, 1
+    sw $t0, 292($sp)
+    li $t0, 1
+    sw $t0, 296($sp)
+    li $t0, 1
+    sw $t0, 300($sp)
+    li $t0, 1
+    sw $t0, 304($sp)
+    li $t0, 1
+    sw $t0, 308($sp)
+    li $t0, 1
+    sw $t0, 312($sp)
+    li $t0, 1
+    sw $t0, 316($sp)
+    li $t0, 1
+    sw $t0, 320($sp)
+
+    move $a0, $sp
+    sw $a0, 340($sp)
+    j end_levels
+if_seventh_level:
+    li $t0, 7
+    bne $s0, $t0, if_eigth_level
+    ;--- row 0
+    li $t0, 1
+    sw $t0, 0($sp)
+    li $t0, 1
+    sw $t0, 4($sp)
+    li $t0, 2
+    sw $t0, 8($sp)
+    li $t0, 2
+    sw $t0, 12($sp)
+    li $t0, 2
+    sw $t0, 16($sp)
+    li $t0, 2
+    sw $t0, 20($sp)
+    li $t0, 1
+    sw $t0, 24($sp)
+    li $t0, 1
+    sw $t0, 28($sp)
+    li $t0, 1
+    sw $t0, 32($sp)
+
+    ;--- row 1
+    li $t0, 1
+    sw $t0, 36($sp)
+    li $t0, 1
+    sw $t0, 40($sp)
+    li $t0, 2
+    sw $t0, 44($sp)
+    li $t0, 5
+    sw $t0, 48($sp)
+    li $t0, 5
+    sw $t0, 52($sp)
+    li $t0, 2
+    sw $t0, 56($sp)
+    li $t0, 1
+    sw $t0, 60($sp)
+    li $t0, 1
+    sw $t0, 64($sp)
+    li $t0, 1
+    sw $t0, 68($sp)
+
+    ;--- row 2
+    li $t0, 1
+    sw $t0, 72($sp)
+    li $t0, 2
+    sw $t0, 76($sp)
+    li $t0, 2
+    sw $t0, 80($sp)
+    li $t0, 0
+    sw $t0, 84($sp)
+    li $t0, 5
+    sw $t0, 88($sp)
+    li $t0, 2
+    sw $t0, 92($sp)
+    li $t0, 2
+    sw $t0, 96($sp)
+    li $t0, 1
+    sw $t0, 100($sp)
+    li $t0, 1
+    sw $t0, 104($sp)
+
+    ;--- row 3
+    li $t0, 1
+    sw $t0, 108($sp)
+    li $t0, 2
+    sw $t0, 112($sp)
+    li $t0, 0
+    sw $t0, 116($sp)
+    li $t0, 0 ; --aqui
+    sw $t0, 120($sp)
+    li $t0, 3
+    sw $t0, 124($sp)
+    li $t0, 5 ; --aqui
+    sw $t0, 128($sp)
+    li $t0, 2
+    sw $t0, 132($sp)
+    li $t0, 1
+    sw $t0, 136($sp)
+    li $t0, 1
+    sw $t0, 140($sp)
+
+    ;---row 4
+    li $t0, 2
+    sw $t0, 144($sp)
+    li $t0, 2
+    sw $t0, 148($sp)
+    li $t0, 0
+    sw $t0, 152($sp)
+    li $t0, 3 ;-- aqui
+    sw $t0, 156($sp)
+    li $t0, 0
+    sw $t0, 160($sp)
+    li $t0, 0
+    sw $t0, 164($sp)
+    li $t0, 2
+    sw $t0, 168($sp)
+    li $t0, 2
+    sw $t0, 172($sp)
+    li $t0, 1
+    sw $t0, 176($sp)
+
+    ;--- row 5
+    li $t0, 2
+    sw $t0, 180($sp)
+    li $t0, 0
+    sw $t0, 184($sp)
+    li $t0, 0
+    sw $t0, 188($sp)
+    li $t0, 2
+    sw $t0, 192($sp)
+    li $t0, 3 ;-- aqui
+    sw $t0, 196($sp)
+    li $t0, 3
+    sw $t0, 200($sp)
+    li $t0, 0
+    sw $t0, 204($sp)
+    li $t0, 2
+    sw $t0, 208($sp)
+    li $t0, 1
+    sw $t0, 212($sp)
+
+    ;--- row 6
+    li $t0, 2
+    sw $t0, 216($sp)
+    li $t0, 0
+    sw $t0, 220($sp)
+    li $t0, 0
+    sw $t0, 224($sp)
+    li $t0, 4
+    sw $t0, 228($sp)
+    li $t0, 0
+    sw $t0, 232($sp)
+    li $t0, 0
+    sw $t0, 236($sp)
+    li $t0, 0
+    sw $t0, 240($sp)
+    li $t0, 2
+    sw $t0, 244($sp)
+    li $t0, 1
+    sw $t0, 248($sp)
+
+    ;--- row 7
+    li $t0, 2
+    sw $t0, 252($sp)
+    li $t0, 2
+    sw $t0, 256($sp)
+    li $t0, 2
+    sw $t0, 260($sp)
+    li $t0, 2
+    sw $t0, 264($sp)
+    li $t0, 2
+    sw $t0, 268($sp)
+    li $t0, 2
+    sw $t0, 272($sp)
+    li $t0, 2
+    sw $t0, 276($sp)
+    li $t0, 2
+    sw $t0, 280($sp)
+    li $t0, 1
+    sw $t0, 284($sp)
+
+    ;--- row 8
+    li $t0, 1
+    sw $t0, 288($sp)
+    li $t0, 1
+    sw $t0, 292($sp)
+    li $t0, 1
+    sw $t0, 296($sp)
+    li $t0, 1
+    sw $t0, 300($sp)
+    li $t0, 1
+    sw $t0, 304($sp)
+    li $t0, 1
+    sw $t0, 308($sp)
+    li $t0, 1
+    sw $t0, 312($sp)
+    li $t0, 1
+    sw $t0, 316($sp)
+    li $t0, 1
+    sw $t0, 320($sp)
+
+    move $a0, $sp
+    sw $a0, 340($sp)
+    j end_levels
+if_eigth_level:
+    li $t0, 8
+    bne $s0, $t0, if_ninth_level
+    ;--- row 0
+    li $t0, 2
+    sw $t0, 0($sp)
+    li $t0, 2
+    sw $t0, 4($sp)
+    li $t0, 2
+    sw $t0, 8($sp)
+    li $t0, 2
+    sw $t0, 12($sp)
+    li $t0, 2
+    sw $t0, 16($sp)
+    li $t0, 2
+    sw $t0, 20($sp)
+    li $t0, 2
+    sw $t0, 24($sp)
+    li $t0, 2
+    sw $t0, 28($sp)
+    li $t0, 1
+    sw $t0, 32($sp)
+
+    ;--- row 1
+    li $t0, 2
+    sw $t0, 36($sp)
+    li $t0, 0
+    sw $t0, 40($sp)
+    li $t0, 0
+    sw $t0, 44($sp)
+    li $t0, 2
+    sw $t0, 48($sp)
+    li $t0, 0
+    sw $t0, 52($sp)
+    li $t0, 0
+    sw $t0, 56($sp)
+    li $t0, 0
+    sw $t0, 60($sp)
+    li $t0, 2
+    sw $t0, 64($sp)
+    li $t0, 1
+    sw $t0, 68($sp)
+
+    ;--- row 2
+    li $t0, 2
+    sw $t0, 72($sp)
+    li $t0, 4
+    sw $t0, 76($sp)
+    li $t0, 3
+    sw $t0, 80($sp)
+    li $t0, 5
+    sw $t0, 84($sp)
+    li $t0, 5
+    sw $t0, 88($sp)
+    li $t0, 3
+    sw $t0, 92($sp)
+    li $t0, 0
+    sw $t0, 96($sp)
+    li $t0, 2
+    sw $t0, 100($sp)
+    li $t0, 1
+    sw $t0, 104($sp)
+
+    ;--- row 3
+    li $t0, 2
+    sw $t0, 108($sp)
+    li $t0, 0
+    sw $t0, 112($sp)
+    li $t0, 3
+    sw $t0, 116($sp)
+    li $t0, 5 ; --aqui
+    sw $t0, 120($sp)
+    li $t0, 3
+    sw $t0, 124($sp)
+    li $t0, 0 ; --aqui
+    sw $t0, 128($sp)
+    li $t0, 2
+    sw $t0, 132($sp)
+    li $t0, 2
+    sw $t0, 136($sp)
+    li $t0, 1
+    sw $t0, 140($sp)
+
+    ;---row 4
+    li $t0, 2
+    sw $t0, 144($sp)
+    li $t0, 0
+    sw $t0, 148($sp)
+    li $t0, 3
+    sw $t0, 152($sp)
+    li $t0, 5 ;-- aqui
+    sw $t0, 156($sp)
+    li $t0, 5
+    sw $t0, 160($sp)
+    li $t0, 3
+    sw $t0, 164($sp)
+    li $t0, 0
+    sw $t0, 168($sp)
+    li $t0, 2
+    sw $t0, 172($sp)
+    li $t0, 1
+    sw $t0, 176($sp)
+
+    ;--- row 5
+    li $t0, 2
+    sw $t0, 180($sp)
+    li $t0, 0
+    sw $t0, 184($sp)
+    li $t0, 0
+    sw $t0, 188($sp)
+    li $t0, 2
+    sw $t0, 192($sp)
+    li $t0, 0 ;-- aqui
+    sw $t0, 196($sp)
+    li $t0, 0
+    sw $t0, 200($sp)
+    li $t0, 0
+    sw $t0, 204($sp)
+    li $t0, 2
+    sw $t0, 208($sp)
+    li $t0, 1
+    sw $t0, 212($sp)
+
+    ;--- row 6
+    li $t0, 2
+    sw $t0, 216($sp)
+    li $t0, 2
+    sw $t0, 220($sp)
+    li $t0, 2
+    sw $t0, 224($sp)
+    li $t0, 2
+    sw $t0, 228($sp)
+    li $t0, 2
+    sw $t0, 232($sp)
+    li $t0, 2
+    sw $t0, 236($sp)
+    li $t0, 2
+    sw $t0, 240($sp)
+    li $t0, 2
+    sw $t0, 244($sp)
+    li $t0, 1
+    sw $t0, 248($sp)
+
+    ;--- row 7
+    li $t0, 1
+    sw $t0, 252($sp)
+    li $t0, 1
+    sw $t0, 256($sp)
+    li $t0, 1
+    sw $t0, 260($sp)
+    li $t0, 1
+    sw $t0, 264($sp)
+    li $t0, 1
+    sw $t0, 268($sp)
+    li $t0, 1
+    sw $t0, 272($sp)
+    li $t0, 1
+    sw $t0, 276($sp)
+    li $t0, 1
+    sw $t0, 280($sp)
+    li $t0, 1
+    sw $t0, 284($sp)
+
+    ;--- row 8
+    li $t0, 1
+    sw $t0, 288($sp)
+    li $t0, 1
+    sw $t0, 292($sp)
+    li $t0, 1
+    sw $t0, 296($sp)
+    li $t0, 1
+    sw $t0, 300($sp)
+    li $t0, 1
+    sw $t0, 304($sp)
+    li $t0, 1
+    sw $t0, 308($sp)
+    li $t0, 1
+    sw $t0, 312($sp)
+    li $t0, 1
+    sw $t0, 316($sp)
+    li $t0, 1
+    sw $t0, 320($sp)
+
+    move $a0, $sp
+    sw $a0, 340($sp)
+    j end_levels
+if_ninth_level:
+    li $t0, 9
+    bne $s0, $t0, if_tenth_level
+    ;--- row 0
+    li $t0, 2
+    sw $t0, 0($sp)
+    li $t0, 2
+    sw $t0, 4($sp)
+    li $t0, 2
+    sw $t0, 8($sp)
+    li $t0, 2
+    sw $t0, 12($sp)
+    li $t0, 2
+    sw $t0, 16($sp)
+    li $t0, 2
+    sw $t0, 20($sp)
+    li $t0, 1
+    sw $t0, 24($sp)
+    li $t0, 1
+    sw $t0, 28($sp)
+    li $t0, 1
+    sw $t0, 32($sp)
+
+    ;--- row 1
+    li $t0, 2
+    sw $t0, 36($sp)
+    li $t0, 0
+    sw $t0, 40($sp)
+    li $t0, 0
+    sw $t0, 44($sp)
+    li $t0, 0
+    sw $t0, 48($sp)
+    li $t0, 0
+    sw $t0, 52($sp)
+    li $t0, 2
+    sw $t0, 56($sp)
+    li $t0, 1
+    sw $t0, 60($sp)
+    li $t0, 1
+    sw $t0, 64($sp)
+    li $t0, 1
+    sw $t0, 68($sp)
+
+    ;--- row 2
+    li $t0, 2
+    sw $t0, 72($sp)
+    li $t0, 0
+    sw $t0, 76($sp)
+    li $t0, 3
+    sw $t0, 80($sp)
+    li $t0, 3
+    sw $t0, 84($sp)
+    li $t0, 3
+    sw $t0, 88($sp)
+    li $t0, 2
+    sw $t0, 92($sp)
+    li $t0, 2
+    sw $t0, 96($sp)
+    li $t0, 1
+    sw $t0, 100($sp)
+    li $t0, 1
+    sw $t0, 104($sp)
+
+    ;--- row 3
+    li $t0, 2
+    sw $t0, 108($sp)
+    li $t0, 0
+    sw $t0, 112($sp)
+    li $t0, 0
+    sw $t0, 116($sp)
+    li $t0, 2 ; --aqui
+    sw $t0, 120($sp)
+    li $t0, 5
+    sw $t0, 124($sp)
+    li $t0, 5 ; --aqui
+    sw $t0, 128($sp)
+    li $t0, 2
+    sw $t0, 132($sp)
+    li $t0, 2
+    sw $t0, 136($sp)
+    li $t0, 2
+    sw $t0, 140($sp)
+
+    ;---row 4
+    li $t0, 2
+    sw $t0, 144($sp)
+    li $t0, 2
+    sw $t0, 148($sp)
+    li $t0, 0
+    sw $t0, 152($sp)
+    li $t0, 0 ;-- aqui
+    sw $t0, 156($sp)
+    li $t0, 5
+    sw $t0, 160($sp)
+    li $t0, 5
+    sw $t0, 164($sp)
+    li $t0, 3
+    sw $t0, 168($sp)
+    li $t0, 0
+    sw $t0, 172($sp)
+    li $t0, 2
+    sw $t0, 176($sp)
+
+    ;--- row 5
+    li $t0, 1
+    sw $t0, 180($sp)
+    li $t0, 2
+    sw $t0, 184($sp)
+    li $t0, 0
+    sw $t0, 188($sp)
+    li $t0, 0
+    sw $t0, 192($sp)
+    li $t0, 0 ;-- aqui
+    sw $t0, 196($sp)
+    li $t0, 0
+    sw $t0, 200($sp)
+    li $t0, 0
+    sw $t0, 204($sp)
+    li $t0, 0
+    sw $t0, 208($sp)
+    li $t0, 2
+    sw $t0, 212($sp)
+
+    ;--- row 6
+    li $t0, 1
+    sw $t0, 216($sp)
+    li $t0, 2
+    sw $t0, 220($sp)
+    li $t0, 2
+    sw $t0, 224($sp)
+    li $t0, 2
+    sw $t0, 228($sp)
+    li $t0, 2
+    sw $t0, 232($sp)
+    li $t0, 2
+    sw $t0, 236($sp)
+    li $t0, 2
+    sw $t0, 240($sp)
+    li $t0, 2
+    sw $t0, 244($sp)
+    li $t0, 2
+    sw $t0, 248($sp)
+
+    ;--- row 7
+    li $t0, 1
+    sw $t0, 252($sp)
+    li $t0, 1
+    sw $t0, 256($sp)
+    li $t0, 1
+    sw $t0, 260($sp)
+    li $t0, 1
+    sw $t0, 264($sp)
+    li $t0, 1
+    sw $t0, 268($sp)
+    li $t0, 1
+    sw $t0, 272($sp)
+    li $t0, 1
+    sw $t0, 276($sp)
+    li $t0, 1
+    sw $t0, 280($sp)
+    li $t0, 1
+    sw $t0, 284($sp)
+
+    ;--- row 8
+    li $t0, 1
+    sw $t0, 288($sp)
+    li $t0, 1
+    sw $t0, 292($sp)
+    li $t0, 1
+    sw $t0, 296($sp)
+    li $t0, 1
+    sw $t0, 300($sp)
+    li $t0, 1
+    sw $t0, 304($sp)
+    li $t0, 1
+    sw $t0, 308($sp)
+    li $t0, 1
+    sw $t0, 312($sp)
+    li $t0, 1
+    sw $t0, 316($sp)
+    li $t0, 1
+    sw $t0, 320($sp)
+
+    move $a0, $sp
+    sw $a0, 340($sp)
+    j end_levels
+
+if_tenth_level:
+    li $t0, 10
     bne $s0, $t0, end_levels
+    ;--- row 0
+    li $t0, 2
+    sw $t0, 0($sp)
+    li $t0, 2
+    sw $t0, 4($sp)
+    li $t0, 2
+    sw $t0, 8($sp)
+    li $t0, 2
+    sw $t0, 12($sp)
+    li $t0, 2
+    sw $t0, 16($sp)
+    li $t0, 2
+    sw $t0, 20($sp)
+    li $t0, 2
+    sw $t0, 24($sp)
+    li $t0, 1
+    sw $t0, 28($sp)
+    li $t0, 1
+    sw $t0, 32($sp)
+
+    ;--- row 1
+    li $t0, 2
+    sw $t0, 36($sp)
+    li $t0, 5
+    sw $t0, 40($sp)
+    li $t0, 5
+    sw $t0, 44($sp)
+    li $t0, 3
+    sw $t0, 48($sp)
+    li $t0, 5
+    sw $t0, 52($sp)
+    li $t0, 5
+    sw $t0, 56($sp)
+    li $t0, 2
+    sw $t0, 60($sp)
+    li $t0, 1
+    sw $t0, 64($sp)
+    li $t0, 1
+    sw $t0, 68($sp)
+
+    ;--- row 2
+    li $t0, 2
+    sw $t0, 72($sp)
+    li $t0, 5
+    sw $t0, 76($sp)
+    li $t0, 5
+    sw $t0, 80($sp)
+    li $t0, 2
+    sw $t0, 84($sp)
+    li $t0, 5
+    sw $t0, 88($sp)
+    li $t0, 5
+    sw $t0, 92($sp)
+    li $t0, 2
+    sw $t0, 96($sp)
+    li $t0, 1
+    sw $t0, 100($sp)
+    li $t0, 1
+    sw $t0, 104($sp)
+
+    ;--- row 3
+    li $t0, 2
+    sw $t0, 108($sp)
+    li $t0, 0
+    sw $t0, 112($sp)
+    li $t0, 3
+    sw $t0, 116($sp)
+    li $t0, 3 ; --aqui
+    sw $t0, 120($sp)
+    li $t0, 3
+    sw $t0, 124($sp)
+    li $t0, 0 ; --aqui
+    sw $t0, 128($sp)
+    li $t0, 2
+    sw $t0, 132($sp)
+    li $t0, 1
+    sw $t0, 136($sp)
+    li $t0, 1
+    sw $t0, 140($sp)
+
+    ;---row 4
+    li $t0, 2
+    sw $t0, 144($sp)
+    li $t0, 0
+    sw $t0, 148($sp)
+    li $t0, 0
+    sw $t0, 152($sp)
+    li $t0, 3 ;-- aqui
+    sw $t0, 156($sp)
+    li $t0, 0
+    sw $t0, 160($sp)
+    li $t0, 0
+    sw $t0, 164($sp)
+    li $t0, 2
+    sw $t0, 168($sp)
+    li $t0, 1
+    sw $t0, 172($sp)
+    li $t0, 1
+    sw $t0, 176($sp)
+
+    ;--- row 5
+    li $t0, 2
+    sw $t0, 180($sp)
+    li $t0, 0
+    sw $t0, 184($sp)
+    li $t0, 3
+    sw $t0, 188($sp)
+    li $t0, 3
+    sw $t0, 192($sp)
+    li $t0, 3 ;-- aqui
+    sw $t0, 196($sp)
+    li $t0, 0
+    sw $t0, 200($sp)
+    li $t0, 2
+    sw $t0, 204($sp)
+    li $t0, 1
+    sw $t0, 208($sp)
+    li $t0, 1
+    sw $t0, 212($sp)
+
+    ;--- row 6
+    li $t0, 2
+    sw $t0, 216($sp)
+    li $t0, 0
+    sw $t0, 220($sp)
+    li $t0, 0
+    sw $t0, 224($sp)
+    li $t0, 2
+    sw $t0, 228($sp)
+    li $t0, 4
+    sw $t0, 232($sp)
+    li $t0, 0
+    sw $t0, 236($sp)
+    li $t0, 2
+    sw $t0, 240($sp)
+    li $t0, 1
+    sw $t0, 244($sp)
+    li $t0, 1
+    sw $t0, 248($sp)
+
+    ;--- row 7
+    li $t0, 2
+    sw $t0, 252($sp)
+    li $t0, 2
+    sw $t0, 256($sp)
+    li $t0, 2
+    sw $t0, 260($sp)
+    li $t0, 2
+    sw $t0, 264($sp)
+    li $t0, 2
+    sw $t0, 268($sp)
+    li $t0, 2
+    sw $t0, 272($sp)
+    li $t0, 2
+    sw $t0, 276($sp)
+    li $t0, 1
+    sw $t0, 280($sp)
+    li $t0, 1
+    sw $t0, 284($sp)
+
+    ;--- row 8
+    li $t0, 1
+    sw $t0, 288($sp)
+    li $t0, 1
+    sw $t0, 292($sp)
+    li $t0, 1
+    sw $t0, 296($sp)
+    li $t0, 1
+    sw $t0, 300($sp)
+    li $t0, 1
+    sw $t0, 304($sp)
+    li $t0, 1
+    sw $t0, 308($sp)
+    li $t0, 1
+    sw $t0, 312($sp)
+    li $t0, 1
+    sw $t0, 316($sp)
+    li $t0, 1
+    sw $t0, 320($sp)
+
+    move $a0, $sp
+    sw $a0, 340($sp)
+    j end_levels
 end_levels:
     jr $ra
