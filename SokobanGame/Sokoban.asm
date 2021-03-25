@@ -83,9 +83,10 @@ if_play:
 while_play:
 if_lvl_passed:
     jal checkLevelPassed
-    li $t0, 1
+    li $t0, 7
     ;#show $v0
     beq $v0, $zero, end_if_lvl_passed
+    beq $s0, $t0, game_finished
     addi $s0, $s0, 1
     
 if_lvl_1:
@@ -302,6 +303,14 @@ if_kb_end:
 end_if_kbhit:
     j while_play
 end_while_play:
+
+game_finished:
+    li $v0, 30
+    syscall
+    li $v0, 53
+    syscall
+    j start
+exit_true:
     lw $ra, 324($sp)
     addi $sp, $sp, 372
     ;li $v0, 10
