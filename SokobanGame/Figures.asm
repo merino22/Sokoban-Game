@@ -8,7 +8,7 @@
 ; Print Box Function
 Box:
     li $v0, 29
-    li $a0, 3
+    li $a0, 6
     syscall
     li $v0, 28
     li $a0, 0

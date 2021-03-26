@@ -5,6 +5,108 @@
 .global RepaintBoxes
 .global checkBoxSpot
 .global checkLevelPassed
+.global printLvlCounter
+.global printInstruc
+.data
+    kb_count_str: .byte "Move Counter: ", 0
+    lvl_str: .byte "Level: ", 0
+    instr_0: .byte "======== GAME INSTRUCTIONS ========", 0
+    instr_1: .byte "           Move Up: W", 0
+    instr_2: .byte "           Move Down: S", 0
+    instr_3: .byte "           Move Left: A", 0
+    instr_4: .byte "           Move Right: D", 0
+    instr_5: .byte "           Restart Level: SPACE", 0
+    instr_6: .byte "           Exit Level: ESC", 0
+    instr_7: .byte "           Press SPACE to return to Main Menu"
+.text
+printInstruc:
+    li $v0, 30
+    syscall
+    li $v0, 53
+    syscall
+    li $v0, 28
+    li $a0, 6
+    syscall
+    li $v0, 29
+    li $a0, 0
+    syscall
+    li $v0, 4
+    la $a0, instr_0
+    syscall
+    li $v0, 11
+    li $a0, 10
+    syscall
+    li $v0, 4
+    la $a0, instr_1
+    syscall
+    li $v0, 11
+    li $a0, 10
+    syscall
+    li $v0, 4
+    la $a0, instr_2
+    syscall
+    li $v0, 11
+    li $a0, 10
+    syscall
+    li $v0, 4
+    la $a0, instr_3
+    syscall
+    li $v0, 11
+    li $a0, 10
+    syscall
+    li $v0, 4
+    la $a0, instr_4
+    syscall
+    li $v0, 11
+    li $a0, 10
+    syscall
+    li $v0, 4
+    la $a0, instr_5
+    syscall
+    li $v0, 11
+    li $a0, 10
+    syscall
+    li $v0, 4
+    la $a0, instr_6
+    syscall
+    li $v0, 11
+    li $a0, 10
+    syscall
+    li $v0, 4
+    li $a0, instr_7
+    syscall
+while_instruc:
+    li $v0, 31
+    syscall
+    li $t0, 32
+    beq $v0, $t0, end_while_instruc
+    j while_instruc
+end_while_instruc:
+
+    jr $ra
+
+printLvlCounter:
+    li $v0, 51
+    li $a1, 15
+    li $a2, 29
+    syscall
+    li $v0, 4
+    li $a0, lvl_str ; --> print level
+    syscall
+    li $v0, 1
+    move $a0, $s0
+    syscall
+    li $v0, 51
+    li $a1, 35
+    li $a2, 29
+    syscall
+    li $v0, 4
+    li $a0, kb_count_str ; --> print move counter
+    syscall
+    li $v0, 1
+    move $a0, $s1
+    syscall
+    jr $ra
 
 checkLevelPassed:
     lw $a0, 340($sp)
