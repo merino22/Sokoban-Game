@@ -83,7 +83,7 @@ if_play:
 while_play:
 if_lvl_passed:
     jal checkLevelPassed
-    li $t0, 7
+    li $t0, 10
     ;#show $v0
     beq $v0, $zero, end_if_lvl_passed
     beq $s0, $t0, game_finished
@@ -204,8 +204,8 @@ if_lvl_8:
     jal generateMap
     jal printMap
     li $v0, 51 ; --> call rlutil::locate(x,y)
-    li $a1, 8
-    li $a2, 7
+    li $a1, 22
+    li $a2, 4
     syscall
     j end_if_lvl_passed
 end_if_lvl_8:
@@ -234,8 +234,8 @@ if_lvl_10:
     jal generateMap
     jal printMap
     li $v0, 51 ; --> call rlutil::locate(x,y)
-    li $a1, 29
-    li $a2, 19
+    li $a1, 22
+    li $a2, 16
     syscall
 end_if_lvl_10:
 end_if_lvl_passed:

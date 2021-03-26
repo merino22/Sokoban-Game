@@ -649,8 +649,8 @@ if_lvl_8:
     li $t3, 8
     bne $s0, $t3, if_lvl_9
 lvl_8_spot_1:
-    li $t1, 22 ;--> x
-    li $t2, 7 ;--> y
+    li $t1, 15 ;--> x
+    li $t2, 10 ;--> y
     ;j end_if_lvl
     bne $a1, $t1, lvl_8_spot_2
     bne $a2, $t2, lvl_8_spot_2
@@ -658,15 +658,15 @@ lvl_8_spot_1:
     jal Boxspot
     j end_lvl_8_spots
 lvl_8_spot_2:
-    li $t1, 29 ;--> x
-    li $t2, 7 ;--> y
+    li $t1, 22 ;--> x
+    li $t2, 10 ;--> y
     bne $a1, $t1, lvl_8_spot_3
     bne $a2, $t2, lvl_8_spot_3
     jal sortBoxspotArray
     jal Boxspot
     j end_lvl_8_spots
 lvl_8_spot_3:
-    li $t1, 22 ;--> x
+    li $t1, 36 ;--> x
     li $t2, 10 ;--> y
     bne $a1, $t1, lvl_8_spot_4
     bne $a2, $t2, lvl_8_spot_4
@@ -674,24 +674,8 @@ lvl_8_spot_3:
     jal Boxspot
     j end_lvl_8_spots
 lvl_8_spot_4:
-    li $t1, 29 ;--> x
-    li $t2, 10 ;--> y
-    bne $a1, $t1, lvl_8_spot_5
-    bne $a2, $t2, lvl_8_spot_5
-    jal sortBoxspotArray
-    jal Boxspot
-    j end_lvl_8_spots
-lvl_8_spot_5:
-    li $t1, 22 ;--> x
-    li $t2, 13 ;--> y
-    bne $a1, $t1, lvl_8_spot_6
-    bne $a2, $t2, lvl_8_spot_6
-    jal sortBoxspotArray
-    jal Boxspot
-    j end_lvl_8_spots
-lvl_8_spot_6:
-    li $t1, 29 ;--> x
-    li $t2, 13 ;--> y
+    li $t1, 36 ;--> x
+    li $t2, 16 ;--> y
     bne $a1, $t1, end_lvl_8_spots
     bne $a2, $t2, end_lvl_8_spots
     jal sortBoxspotArray
@@ -737,10 +721,10 @@ end_lvl_9_spots:
     j end_if_lvl
 if_lvl_10:
     li $t3, 10
-    bne $s0, $t3, if_lvl_11
+    bne $s0, $t3, end_if_lvl
 lvl_10_spot_1:
-    li $t1, 8 ;--> x
-    li $t2, 4 ;--> y
+    li $t1, 15 ;--> x
+    li $t2, 7 ;--> y
     bne $a1, $t1, lvl_10_spot_2
     bne $a2, $t2, lvl_10_spot_2
     jal sortBoxspotArray
@@ -748,71 +732,21 @@ lvl_10_spot_1:
     j end_lvl_10_spots
 lvl_10_spot_2:
     li $t1, 15 ;--> x
-    li $t2, 4 ;--> y
+    li $t2, 10 ;--> y
     bne $a1, $t1, lvl_10_spot_3
     bne $a2, $t2, lvl_10_spot_3
     jal sortBoxspotArray
     jal Boxspot
     j end_lvl_8_spots
 lvl_10_spot_3:
-    li $t1, 29 ;--> x
-    li $t2, 4 ;--> y
-    bne $a1, $t1, lvl_10_spot_4
-    bne $a2, $t2, lvl_10_spot_4
-    jal sortBoxspotArray
-    jal Boxspot
-    j end_lvl_10_spots
-lvl_10_spot_4:
-    li $t1, 36 ;--> x
-    li $t2, 4 ;--> y
-    bne $a1, $t1, lvl_10_spot_5
-    bne $a2, $t2, lvl_10_spot_5
-    jal sortBoxspotArray
-    jal Boxspot
-    j end_lvl_10_spots
-lvl_10_spot_5:
-    li $t1, 8 ;--> x
-    li $t2, 7 ;--> y
-    bne $a1, $t1, lvl_10_spot_6
-    bne $a2, $t2, lvl_10_spot_6
-    jal sortBoxspotArray
-    jal Boxspot
-    j end_lvl_10_spots
-lvl_10_spot_6:
-    li $t1, 15 ;--> x
-    li $t2, 7 ;--> y
-    bne $a1, $t1, lvl_10_spot_7
-    bne $a2, $t2, lvl_10_spot_7
-    jal sortBoxspotArray
-    jal Boxspot
-    j end_lvl_10_spots
-lvl_10_spot_7:
-    li $t1, 29 ;--> x
-    li $t2, 7 ;--> y
-    bne $a1, $t1, lvl_10_spot_8
-    bne $a2, $t2, lvl_10_spot_8
-    jal sortBoxspotArray
-    jal Boxspot
-    j end_lvl_10_spots
-lvl_10_spot_8:
-    li $t1, 36 ;--> x
-    li $t2, 7 ;--> y
+    li $t1, 22 ;--> x
+    li $t2, 10 ;--> y
     bne $a1, $t1, end_lvl_10_spots
     bne $a2, $t2, end_lvl_10_spots
     jal sortBoxspotArray
     jal Boxspot
 end_lvl_10_spots:
     j end_if_lvl
-
-if_lvl_11:
-
-if_lvl_12:
-
-if_lvl_13:
-
-if_lvl_14:
-
-if_lvl_15:
 
 end_if_lvl:
     lw $ra, 344($sp)
@@ -2164,7 +2098,7 @@ if_eigth_level:
     li $t0, 8
     bne $s0, $t0, if_ninth_level
     ;--- row 0
-    li $t0, 2
+    li $t0, 1
     sw $t0, 0($sp)
     li $t0, 2
     sw $t0, 4($sp)
@@ -2176,27 +2110,27 @@ if_eigth_level:
     sw $t0, 16($sp)
     li $t0, 2
     sw $t0, 20($sp)
-    li $t0, 2
+    li $t0, 1
     sw $t0, 24($sp)
-    li $t0, 2
+    li $t0, 1
     sw $t0, 28($sp)
     li $t0, 1
     sw $t0, 32($sp)
 
     ;--- row 1
-    li $t0, 2
+    li $t0, 1
     sw $t0, 36($sp)
-    li $t0, 0
+    li $t0, 2
     sw $t0, 40($sp)
     li $t0, 0
     sw $t0, 44($sp)
-    li $t0, 2
+    li $t0, 4
     sw $t0, 48($sp)
     li $t0, 0
     sw $t0, 52($sp)
-    li $t0, 0
+    li $t0, 2
     sw $t0, 56($sp)
-    li $t0, 0
+    li $t0, 2
     sw $t0, 60($sp)
     li $t0, 2
     sw $t0, 64($sp)
@@ -2206,15 +2140,15 @@ if_eigth_level:
     ;--- row 2
     li $t0, 2
     sw $t0, 72($sp)
-    li $t0, 4
+    li $t0, 2
     sw $t0, 76($sp)
-    li $t0, 3
+    li $t0, 0
     sw $t0, 80($sp)
-    li $t0, 5
+    li $t0, 2
     sw $t0, 84($sp)
-    li $t0, 5
-    sw $t0, 88($sp)
     li $t0, 3
+    sw $t0, 88($sp)
+    li $t0, 0
     sw $t0, 92($sp)
     li $t0, 0
     sw $t0, 96($sp)
@@ -2232,11 +2166,11 @@ if_eigth_level:
     sw $t0, 116($sp)
     li $t0, 5 ; --aqui
     sw $t0, 120($sp)
-    li $t0, 3
+    li $t0, 0
     sw $t0, 124($sp)
-    li $t0, 0 ; --aqui
+    li $t0, 5 ; --aqui
     sw $t0, 128($sp)
-    li $t0, 2
+    li $t0, 0
     sw $t0, 132($sp)
     li $t0, 2
     sw $t0, 136($sp)
@@ -2248,15 +2182,15 @@ if_eigth_level:
     sw $t0, 144($sp)
     li $t0, 0
     sw $t0, 148($sp)
-    li $t0, 3
-    sw $t0, 152($sp)
-    li $t0, 5 ;-- aqui
-    sw $t0, 156($sp)
-    li $t0, 5
-    sw $t0, 160($sp)
-    li $t0, 3
-    sw $t0, 164($sp)
     li $t0, 0
+    sw $t0, 152($sp)
+    li $t0, 3 ;-- aqui
+    sw $t0, 156($sp)
+    li $t0, 3
+    sw $t0, 160($sp)
+    li $t0, 0
+    sw $t0, 164($sp)
+    li $t0, 2
     sw $t0, 168($sp)
     li $t0, 2
     sw $t0, 172($sp)
@@ -2266,39 +2200,39 @@ if_eigth_level:
     ;--- row 5
     li $t0, 2
     sw $t0, 180($sp)
-    li $t0, 0
+    li $t0, 2
     sw $t0, 184($sp)
-    li $t0, 0
+    li $t0, 2
     sw $t0, 188($sp)
-    li $t0, 2
+    li $t0, 0
     sw $t0, 192($sp)
-    li $t0, 0 ;-- aqui
+    li $t0, 2 ;-- aqui
     sw $t0, 196($sp)
-    li $t0, 0
+    li $t0, 5
     sw $t0, 200($sp)
-    li $t0, 0
-    sw $t0, 204($sp)
     li $t0, 2
+    sw $t0, 204($sp)
+    li $t0, 1
     sw $t0, 208($sp)
     li $t0, 1
     sw $t0, 212($sp)
 
     ;--- row 6
-    li $t0, 2
+    li $t0, 1
     sw $t0, 216($sp)
-    li $t0, 2
+    li $t0, 1
     sw $t0, 220($sp)
     li $t0, 2
     sw $t0, 224($sp)
-    li $t0, 2
+    li $t0, 0
     sw $t0, 228($sp)
-    li $t0, 2
+    li $t0, 0
     sw $t0, 232($sp)
-    li $t0, 2
+    li $t0, 0
     sw $t0, 236($sp)
     li $t0, 2
     sw $t0, 240($sp)
-    li $t0, 2
+    li $t0, 1
     sw $t0, 244($sp)
     li $t0, 1
     sw $t0, 248($sp)
@@ -2308,15 +2242,15 @@ if_eigth_level:
     sw $t0, 252($sp)
     li $t0, 1
     sw $t0, 256($sp)
-    li $t0, 1
+    li $t0, 2
     sw $t0, 260($sp)
-    li $t0, 1
+    li $t0, 2
     sw $t0, 264($sp)
-    li $t0, 1
+    li $t0, 2
     sw $t0, 268($sp)
-    li $t0, 1
+    li $t0, 2
     sw $t0, 272($sp)
-    li $t0, 1
+    li $t0, 2
     sw $t0, 276($sp)
     li $t0, 1
     sw $t0, 280($sp)
@@ -2456,7 +2390,7 @@ if_ninth_level:
     sw $t0, 184($sp)
     li $t0, 0
     sw $t0, 188($sp)
-    li $t0, 0
+    li $t0, 4
     sw $t0, 192($sp)
     li $t0, 0 ;-- aqui
     sw $t0, 196($sp)
@@ -2537,7 +2471,7 @@ if_tenth_level:
     li $t0, 10
     bne $s0, $t0, end_levels
     ;--- row 0
-    li $t0, 2
+    li $t0, 1
     sw $t0, 0($sp)
     li $t0, 2
     sw $t0, 4($sp)
@@ -2557,21 +2491,21 @@ if_tenth_level:
     sw $t0, 32($sp)
 
     ;--- row 1
-    li $t0, 2
+    li $t0, 1
     sw $t0, 36($sp)
-    li $t0, 5
+    li $t0, 2
     sw $t0, 40($sp)
-    li $t0, 5
+    li $t0, 0
     sw $t0, 44($sp)
-    li $t0, 3
+    li $t0, 0
     sw $t0, 48($sp)
-    li $t0, 5
+    li $t0, 0
     sw $t0, 52($sp)
-    li $t0, 5
+    li $t0, 0
     sw $t0, 56($sp)
     li $t0, 2
     sw $t0, 60($sp)
-    li $t0, 1
+    li $t0, 2
     sw $t0, 64($sp)
     li $t0, 1
     sw $t0, 68($sp)
@@ -2579,19 +2513,19 @@ if_tenth_level:
     ;--- row 2
     li $t0, 2
     sw $t0, 72($sp)
-    li $t0, 5
+    li $t0, 2
     sw $t0, 76($sp)
     li $t0, 5
     sw $t0, 80($sp)
     li $t0, 2
     sw $t0, 84($sp)
-    li $t0, 5
-    sw $t0, 88($sp)
-    li $t0, 5
-    sw $t0, 92($sp)
     li $t0, 2
+    sw $t0, 88($sp)
+    li $t0, 3
+    sw $t0, 92($sp)
+    li $t0, 0
     sw $t0, 96($sp)
-    li $t0, 1
+    li $t0, 2
     sw $t0, 100($sp)
     li $t0, 1
     sw $t0, 104($sp)
@@ -2601,17 +2535,17 @@ if_tenth_level:
     sw $t0, 108($sp)
     li $t0, 0
     sw $t0, 112($sp)
-    li $t0, 3
+    li $t0, 5
     sw $t0, 116($sp)
-    li $t0, 3 ; --aqui
+    li $t0, 5 ; --aqui
     sw $t0, 120($sp)
     li $t0, 3
     sw $t0, 124($sp)
     li $t0, 0 ; --aqui
     sw $t0, 128($sp)
-    li $t0, 2
+    li $t0, 0
     sw $t0, 132($sp)
-    li $t0, 1
+    li $t0, 2
     sw $t0, 136($sp)
     li $t0, 1
     sw $t0, 140($sp)
@@ -2623,15 +2557,15 @@ if_tenth_level:
     sw $t0, 148($sp)
     li $t0, 0
     sw $t0, 152($sp)
-    li $t0, 3 ;-- aqui
+    li $t0, 2 ;-- aqui
     sw $t0, 156($sp)
-    li $t0, 0
+    li $t0, 3
     sw $t0, 160($sp)
     li $t0, 0
     sw $t0, 164($sp)
-    li $t0, 2
+    li $t0, 0
     sw $t0, 168($sp)
-    li $t0, 1
+    li $t0, 2
     sw $t0, 172($sp)
     li $t0, 1
     sw $t0, 176($sp)
@@ -2641,17 +2575,17 @@ if_tenth_level:
     sw $t0, 180($sp)
     li $t0, 0
     sw $t0, 184($sp)
-    li $t0, 3
-    sw $t0, 188($sp)
-    li $t0, 3
-    sw $t0, 192($sp)
-    li $t0, 3 ;-- aqui
-    sw $t0, 196($sp)
     li $t0, 0
+    sw $t0, 188($sp)
+    li $t0, 4
+    sw $t0, 192($sp)
+    li $t0, 0 ;-- aqui
+    sw $t0, 196($sp)
+    li $t0, 2
     sw $t0, 200($sp)
     li $t0, 2
     sw $t0, 204($sp)
-    li $t0, 1
+    li $t0, 2
     sw $t0, 208($sp)
     li $t0, 1
     sw $t0, 212($sp)
@@ -2659,17 +2593,17 @@ if_tenth_level:
     ;--- row 6
     li $t0, 2
     sw $t0, 216($sp)
-    li $t0, 0
+    li $t0, 2
     sw $t0, 220($sp)
-    li $t0, 0
+    li $t0, 2
     sw $t0, 224($sp)
     li $t0, 2
     sw $t0, 228($sp)
-    li $t0, 4
-    sw $t0, 232($sp)
-    li $t0, 0
-    sw $t0, 236($sp)
     li $t0, 2
+    sw $t0, 232($sp)
+    li $t0, 2
+    sw $t0, 236($sp)
+    li $t0, 1
     sw $t0, 240($sp)
     li $t0, 1
     sw $t0, 244($sp)
@@ -2677,19 +2611,19 @@ if_tenth_level:
     sw $t0, 248($sp)
 
     ;--- row 7
-    li $t0, 2
+    li $t0, 1
     sw $t0, 252($sp)
-    li $t0, 2
+    li $t0, 1
     sw $t0, 256($sp)
-    li $t0, 2
+    li $t0, 1
     sw $t0, 260($sp)
-    li $t0, 2
+    li $t0, 1
     sw $t0, 264($sp)
-    li $t0, 2
+    li $t0, 1
     sw $t0, 268($sp)
-    li $t0, 2
+    li $t0, 1
     sw $t0, 272($sp)
-    li $t0, 2
+    li $t0, 1
     sw $t0, 276($sp)
     li $t0, 1
     sw $t0, 280($sp)
