@@ -4,7 +4,13 @@ The game winning condition is reached when all the storage locations have been f
 
 The game is played on a board of squares, where each square is a floor or a wall. Some floor squares contain boxes, and some floor squares are marked as storage locations.
 
-The player is confined to the board and may move horizontally or vertically onto empty squares (never through walls or boxes). The player can move a box by walking up to it and push it to the square beyond. Boxes cannot be pulled, and they cannot be pushed to squares with walls or other boxes. The number of boxes equals the number of storage locations. The puzzle is solved when all boxes are placed at storage locations. 
+The player is confined to the board and may move horizontally or vertically onto empty squares (never through walls or boxes). The player can move a box by walking up to it and push it to the square beyond. Boxes cannot be pulled, and they cannot be pushed to squares with walls or other boxes. The number of boxes equals the number of storage locations. The puzzle is solved when all boxes are placed at storage locations.
+
+![Screenshot from 2021-03-27 10-23-14](https://user-images.githubusercontent.com/47042092/112728241-ee376a80-8eeb-11eb-9d3a-af9274951744.png)
+---
+![SOK](https://user-images.githubusercontent.com/47042092/112728264-04ddc180-8eec-11eb-9911-189fabcc8fec.png)
+
+
 
 ## Development Tools
 
