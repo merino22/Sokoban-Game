@@ -7,21 +7,21 @@
 
 ; Print Box Function
 Box:
-    li $v0, 29
+    li $v0, 29 ; --> call rlutil::setBackgroundColor()
     li $a0, 6
     syscall
-    li $v0, 28
+    li $v0, 28 ; --> call rlutil::setColor()
     li $a0, 0
     syscall 
     li $t1, 0 ;--> i
 for_box:
     slti $t0, $t1, 3
     beq $t0, $zero, end_for_box
-    sw $a2, 336($sp)
+    sw $a2, 336($sp) ; --> store y in stack
     add $a2, $a2, $t1
     li $v0, 51 ; --> call rlutil::locate
     syscall
-    lw $a2, 336($sp)
+    lw $a2, 336($sp) ; --> load y variable from stack
     li $t2, 0 ; --> j
     li $v0, 27
     ;#show $t1
@@ -125,11 +125,11 @@ Block:
 for_block:
     slti $t0, $t1, 3
     beq $t0, $zero, end_for_block
-    sw $a2, 336($sp)
+    sw $a2, 336($sp) ; --> store y value in stack
     add $a2, $a2, $t1
-    li $v0, 51
+    li $v0, 51 ;--> call rlutil::locate(x, y)
     syscall
-    lw $a2, 336($sp)
+    lw $a2, 336($sp) ;--> load y variable from stack
     li $t2, 0
 sec_for_block:
     slti $t0, $t2, 7
@@ -142,40 +142,40 @@ if_block:
 
     li $t0, 2
     bne $t2, $t0, else_block
-    li $v0, 28
+    li $v0, 28 ; --> call rlutil::setBackgroundColor()
     li $a0, 15
     syscall
-    li $v0, 29
+    li $v0, 29 ; --> call rlutil::setColor()
     li $a0, 4
     syscall
-    li $v0, 27
-    li $a0, 179
+    li $v0, 27 ;--> call ascii character switch
+    li $a0, 179 ; --> send ascii value of character to print
     syscall
     j end_if_block
 
 else_block:
-    li $v0, 28
+    li $v0, 28 ; --> call rlutil::setBackgroundColor()
     li $a0, 15
     syscall
-    li $v0, 29
+    li $v0, 29 ; --> call rlutil::setColor()
     li $a0, 4
     syscall
-    li $v0, 27
-    li $a0, 95
+    li $v0, 27 ; --> call ascii character switch
+    li $a0, 95 ; --> send ascii value of character to print
     syscall
     j end_if_block
 
 sec_if_block:
     li $t0, 5
     bne $t2, $t0, sec_else_block
-    li $v0, 28
+    li $v0, 28 ; --> call rlutil::setBackgroundColor()
     li $a0, 15
     syscall
-    li $v0, 29
+    li $v0, 29  ; --> call rlutil::setColor()
     li $a0, 4
     syscall
-    li $v0, 27
-    li $a0, 179
+    li $v0, 27 ; --> call ascii character switch 
+    li $a0, 179 ; --> send ascii character value to print
     syscall
     j end_if_block
 sec_else_block:

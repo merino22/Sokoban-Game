@@ -16,7 +16,7 @@ start:
     addi $sp, $sp, -372
     sw $ra, 324($sp)
 
-while_start:
+while_start: ; --> Menu while loop
     li $v0, 53
     syscall
     li $v0, 52
@@ -66,7 +66,7 @@ while_start:
     li $a0, 62
     syscall
 
-if_kb_menu:
+if_kb_menu: ; --> Logic for menu selection
     li $v0, 31
     syscall
     ;#show $v0
@@ -128,14 +128,21 @@ end_while_start:
     move $t1, $v0
     li $t0, 2
 
-if_exit:
+if_exit: ; --> If quit game option is choosen
+    li $v0, 30
+    syscall
+    li $v0, 53
+    syscall
     li $v0, 4
     li $a0, str5
+    syscall
+    li $v0, 11
+    li $a0, 10
     syscall
     li $v0, 10
     syscall 
 
-if_play:
+if_play: ; --> If play game option is choosen
     li $s1, 0
     li $t1, 29 ; --> x
     li $t2, 13 ; --> y
@@ -153,17 +160,17 @@ if_play:
     move $a2, $t2
     syscall
 
-    jal generateMap
-    jal printMap
-    jal printLvlCounter
+    jal generateMap ; --> Pass map to be played onto stack
+    jal printMap ; --> Print map from values stored in stack
+    jal printLvlCounter ; --> Print current level to screen
     li $v0, 51 ; --> call rlutil::locate(x,y)
     li $a1, 29
     li $a2, 13
     syscall
-while_play:
-if_lvl_passed:
+while_play: ; --> Play while loop
+if_lvl_passed: ; --> Check if level has been passed
     jal checkLevelPassed
-    li $t0, 10 ; --> Winning condition variables
+    li $t0, 5 ; --> Winning condition variables
     ;#show $v0
     beq $v0, $zero, end_if_lvl_passed
     beq $s0, $t0, game_finished ; --> winning condition
@@ -351,7 +358,7 @@ if_kbhit: ; --> Check if any key has been hit
     syscall
     jal ErasePlayer ; --> Erase player from board
     lw $v0, 360($sp)
-if_kb_a:
+if_kb_a: ; --> Move Left
     li $t3, 97
     bne $v0, $t3, if_kb_d
     li $a3, -7
@@ -361,7 +368,7 @@ if_kb_a:
     jal checkBoxSpot ; --> check if boxspot available & repaints it
     addi $a1, $a1, -7 ; decrement on x movement
     j if_kb_end
-if_kb_d:
+if_kb_d: ; --> Move Right
     li $t3, 100
     bne $v0, $t3, if_kb_w
     li $a3, 7
@@ -370,8 +377,8 @@ if_kb_d:
     beq $v0, $zero, if_kb_end
     jal checkBoxSpot ; --> check if boxspot available & repaints it
     addi $a1, $a1, 7 ; increment on x movement
-    j if_kb_end
-if_kb_w:
+    j if_kb_end 
+if_kb_w: ; --> Move Up
     li $t3, 119
     bne $v0, $t3, if_kb_s
     li $a3, -3
@@ -381,7 +388,7 @@ if_kb_w:
     jal checkBoxSpot ; --> check if boxspot available & repaints it
     addi $a2, $a2, -3 ; decrement on y movement
     j if_kb_end
-if_kb_s:
+if_kb_s: ; --> Move Down
     li $t3, 115
     bne $v0, $t3, if_kb_space
     li $a3, 3
@@ -394,7 +401,7 @@ if_kb_space: ; --> Restart level
     li $t3, 32
     bne $v0, $t3, if_kb_esc
     j if_lvl_1
-if_kb_esc: ; --> End game
+if_kb_esc: ; --> End game, jump back to main menu
     li $t3, 27
     bne $v0, $t3, if_kb_end
     j while_start
@@ -423,7 +430,7 @@ end_if_kbhit:
     j while_play
 end_while_play:
 
-game_finished: 
+game_finished: ; --> Winning Condition Satisfied
     li $v0, 30 ; --> call rlutil::resetColor()
     syscall
     li $v0, 53 ; --> call rlutil::cls()
@@ -443,7 +450,7 @@ game_finished:
     li $v0, 4
     li $a0, accept_msg
     syscall
-while_win_screen:
+while_win_screen: ; --> Display of Winner Screen
     li $v0, 31
     syscall
     li $t0, 32
@@ -454,11 +461,4 @@ end_while_win_screen:
 exit_true:
     lw $ra, 324($sp)
     addi $sp, $sp, 372
-    ;li $v0, 10
-    ;syscall
-    ;li $v0, 30
-    ;syscall
-    ;li $v0, 53 ; --> call rlutil::cls()
-    ;syscall
-    ;j start
     jr $ra

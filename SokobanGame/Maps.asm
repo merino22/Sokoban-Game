@@ -7,6 +7,7 @@
 .global checkLevelPassed
 .global printLvlCounter
 .global printInstruc
+
 .data
     kb_count_str: .byte "Move Counter: ", 0
     lvl_str: .byte "Level: ", 0
@@ -18,7 +19,10 @@
     instr_5: .byte "           Restart Level: SPACE", 0
     instr_6: .byte "           Exit Level: ESC", 0
     instr_7: .byte "           Press SPACE to return to Main Menu"
+
 .text
+
+; Function for Printing Instruction Menu
 printInstruc:
     li $v0, 30
     syscall
@@ -82,9 +86,9 @@ while_instruc:
     beq $v0, $t0, end_while_instruc
     j while_instruc
 end_while_instruc:
-
     jr $ra
 
+; Function for Printing Level Counter
 printLvlCounter:
     li $v0, 51
     li $a1, 15
@@ -108,6 +112,7 @@ printLvlCounter:
     syscall
     jr $ra
 
+; Function for checking if current level is passed
 checkLevelPassed:
     lw $a0, 340($sp)
     li $t1, 0 ;--> i
@@ -144,6 +149,7 @@ end_false:
     sw $a0, 340($sp)
     jr $ra
 
+; Function for printing current level Map
 printMap:
     ; $a0 --> mem direction of map
     ;#show $a0
@@ -210,6 +216,7 @@ end_for_i:
     lw $ra, 344($sp)
     jr $ra
 
+; Function for checking if next x movement is valid
 checkPosX:
     lw $a0, 340($sp)
     ;#show $a0
@@ -322,7 +329,7 @@ end_if_arr:
     sw $a0, 340($sp)
     jr $ra
 
-; ==== Check Pos Y ==================
+; Function for checking if next y movement is valid
 checkPosY:
     lw $a0, 340($sp)
     ;#show $a0
@@ -436,7 +443,7 @@ end_if_arr_y:
     sw $a0, 340($sp)
     jr $ra
 
-
+; Function for repainting boxes onto map after array modification
 RepaintBoxes:
     ; $a0 --> mem direction of map
     ;#show $a0
@@ -487,6 +494,7 @@ end_for_i_rep:
     lw $ra, 344($sp)
     jr $ra
 
+; Check if player or box is on top of a boxspot, if removed repaint boxspot
 checkBoxSpot:
     sw $ra, 344($sp)
 if_lvl_1:
@@ -854,6 +862,7 @@ end_if_lvl:
     lw $ra, 344($sp)
     jr $ra
 
+; Function for box position modification inside array
 sortBoxspotArray:
     lw $a0, 340($sp)
     move $t1, $a1 ; --> x
@@ -889,6 +898,7 @@ sortBoxspotArray:
     sw $a0, 340($sp)
     jr $ra
 
+; Function for loading next map to be played onto the stack
 generateMap:
 if_first_level:
     li $t0, 1
