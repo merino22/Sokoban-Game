@@ -74,7 +74,7 @@ To check CMake type following command in terminal
 ```bash 
 $ cmake --version
 ```
----
-Level Preview
+
+## Level Preview
 
 ![SOK](https://user-images.githubusercontent.com/47042092/112728264-04ddc180-8eec-11eb-9911-189fabcc8fec.png)
