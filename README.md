@@ -8,6 +8,8 @@ The player is confined to the board and may move horizontally or vertically onto
 
 ![Screenshot from 2021-03-27 10-23-14](https://user-images.githubusercontent.com/47042092/112728241-ee376a80-8eeb-11eb-9d3a-af9274951744.png)
 ---
+Level Preview
+
 ![SOK](https://user-images.githubusercontent.com/47042092/112728264-04ddc180-8eec-11eb-9911-189fabcc8fec.png)
 
 
