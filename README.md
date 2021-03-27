@@ -8,7 +8,9 @@ The player is confined to the board and may move horizontally or vertically onto
 
 ## Development Tools
 
-This game is developed using EasyASM, a simulator for a subset of MIPS32 and x86 ISAs by Ideras(https://github.com/ideras/EasyASM) - with the help of a syscall-handling library and also rlutil library by Tapio(https://github.com/tapio/rlutil). The reach of the development of this game is to at least fully develope three playable levels.
+This game is developed using EasyASM, a simulator for a subset of MIPS32 and x86 ISAs by Ideras(https://github.com/ideras/EasyASM) with the help of a syscall-handling library and also rlutil library by Tapio(https://github.com/tapio/rlutil). The reach of this game's development is to at least fully create three playable levels.
+
+- Update: Final game has ten playable Games
 
 ## Usage
 
@@ -51,7 +53,11 @@ Output:
 ```bash 
 $ EasyASM --sc-handler ./build/libsc-plugin.so --run ./SokobanGame/Sokoban.asm ./SokobanGame/Maps.asm SokobanGame/Figures.asm
 ```
-8. You're all set! Have fun playing!
+
+### Recommendations
+Running Sokoban on VSCode terminal will give the game an overall better aesthetic
+
+8. You're all set! Have fun!
 
 ### Checking for EasyASM & CMake Installation
 To check EasyASM type following command in terminal
