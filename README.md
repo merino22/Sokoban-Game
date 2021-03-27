@@ -57,6 +57,7 @@ $ EasyASM --sc-handler ./build/libsc-plugin.so --run ./SokobanGame/Sokoban.asm .
 
 ## Recommendations
 Running Sokoban on VSCode terminal will give the game an overall better aesthetic
+Running Sokoban with your terminal in full screen mode will give the game an overall better aesthetic
 
 ## Checking for EasyASM & CMake Installation
 To check EasyASM type following command in terminal
