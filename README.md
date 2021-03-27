@@ -18,7 +18,7 @@ This game is developed using EasyASM, a simulator for a subset of MIPS32 and x86
  
 1. Make sure you have EasyASM project installed (Link provided Above), with set environment variable
 
-2. To be able to make use of syscall library provided in the project you'll need to make sure to hace cmake installed in your system
+2. To be able to make use of syscall library provided in the project you'll need to make sure to have cmake installed in your system
 
 3. Download zip file or Clone project to your local file system using repository's .git file(https://github.com/merino22/Sokoban-Game.git)
 ```bash
