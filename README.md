@@ -60,6 +60,11 @@ Running Sokoban on VSCode terminal will give the game an overall better aestheti
 
 ## Checking for EasyASM & CMake Installation
 To check EasyASM type following command in terminal
+```bash
+$ EasyASM
+```
+If EasyASM is installed in your system, the next ouput will be prompted:
+![Screenshot from 2021-03-27 10-40-05](https://user-images.githubusercontent.com/47042092/112727654-1e313e80-8ee9-11eb-8cc1-4eff134dbf5a.png)
 
 To check CMake type following command in terminal
 ```bash 
