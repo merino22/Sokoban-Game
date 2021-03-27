@@ -1,3 +1,0 @@
-EasyASM --sc-handler '/home/aaron/Desktop/easyasm-syscall-lib/build/libsc-plugin.so' --run '/home/aaron/Desktop/easyasm-syscall-lib/test.asm'
-
-EasyASM --sc-handler '/home/aaron/Desktop/easyasm-syscall-lib/build/libsc-plugin.so' --run '/home/aaron/Desktop/easyasm-syscall-lib/SokobanGame/Sokoban.asm' '/home/aaron/Desktop/easyasm-syscall-lib/SokobanGame/Figures.asm'

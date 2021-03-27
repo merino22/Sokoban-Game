@@ -1,0 +1,1 @@
+EasyASM --sc-handler ./build/libsc-plugin.so --run ./SokobanGame/Sokoban.asm ./SokobanGame/Maps.asm SokobanGame/Figures.asm
