@@ -168,6 +168,8 @@ if_play: ; --> If play game option is choosen
     li $a2, 13
     syscall
 while_play: ; --> Play while loop
+    li $v0, 52 ; --> call rlutil::hidecursor()
+    syscall
 if_lvl_passed: ; --> Check if level has been passed
     jal checkLevelPassed
     li $t0, 10 ; --> Winning condition variable
