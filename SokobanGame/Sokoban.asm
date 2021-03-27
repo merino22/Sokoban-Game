@@ -168,8 +168,6 @@ if_play: ; --> If play game option is choosen
     li $a2, 13
     syscall
 while_play: ; --> Play while loop
-    li $v0, 52 ; --> call rlutil::hidecursor()
-    syscall
 if_lvl_passed: ; --> Check if level has been passed
     jal checkLevelPassed
     li $t0, 10 ; --> Winning condition variable
@@ -364,41 +362,41 @@ if_kb_a: ; --> Move Left
     li $t3, 97
     bne $v0, $t3, if_kb_d
     li $a3, -7
-    addi $s1, $s1, 1
     jal checkPosX ; --> check if x has valid movement
     beq $v0, $zero, if_kb_end
     jal checkBoxSpot ; --> check if boxspot available & repaints it
     addi $a1, $a1, -7 ; decrement on x movement
+    addi $s1, $s1, 1
     j if_kb_end
 if_kb_d: ; --> Move Right
     li $t3, 100
     bne $v0, $t3, if_kb_w
     li $a3, 7
-    addi $s1, $s1, 1
     jal checkPosX ; --> check if x has valid movement
     beq $v0, $zero, if_kb_end
     jal checkBoxSpot ; --> check if boxspot available & repaints it
     addi $a1, $a1, 7 ; increment on x movement
+    addi $s1, $s1, 1
     j if_kb_end 
 if_kb_w: ; --> Move Up
     li $t3, 119
     bne $v0, $t3, if_kb_s
     li $a3, -3
-    addi $s1, $s1, 1
     jal checkPosY ; --> check if y has valid movement
     beq $v0, $zero, if_kb_end
     jal checkBoxSpot ; --> check if boxspot available & repaints it
     addi $a2, $a2, -3 ; decrement on y movement
+    addi $s1, $s1, 1
     j if_kb_end
 if_kb_s: ; --> Move Down
     li $t3, 115
     bne $v0, $t3, if_kb_space
     li $a3, 3
-    addi $s1, $s1, 1
     jal checkPosY ; --> check if y has valid movement
     beq $v0, $zero, if_kb_end
     jal checkBoxSpot ; --> check if boxspot available & repaints it
     addi $a2, $a2, 3 ; increment on y movement
+    addi $s1, $s1, 1
 if_kb_space: ; --> Restart level
     li $t3, 32
     bne $v0, $t3, if_kb_esc
