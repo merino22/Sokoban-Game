@@ -15,7 +15,7 @@ This game is developed using EasyASM, a simulator for a subset of MIPS32 and x86
 
 - Update: Final game has ten playable Games
 
-## Usage
+## Usage & Installation
 
 ### Steps to run Sokoban Game in your system
  
