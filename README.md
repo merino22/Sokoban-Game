@@ -18,7 +18,7 @@ This game is developed using EasyASM, a simulator for a subset of MIPS32 and x86
 
 2. To be able to make use of syscall library provided in the project you'll need to make sure to hace cmake installed in your system
 
-3. Download zip file or Clone project to your local file system using repository's .git file
+3. Download zip file or Clone project to your local file system using repository's .git file(https://github.com/merino22/Sokoban-Game.git)
 ```bash
 $ git clone 
 ```
@@ -51,10 +51,12 @@ Output:
 ```bash 
 $ EasyASM --sc-handler ./build/libsc-plugin.so --run ./SokobanGame/Sokoban.asm ./SokobanGame/Maps.asm SokobanGame/Figures.asm
 ```
+8. You're all set! Have fun playing!
 
+### Checking for EasyASM & CMake Installation
+To check EasyASM type following command in terminal
 
-### Checking for CMake Installation
-Type following command in terminal
+To check CMake type following command in terminal
 ```bash 
 $ cmake --version
 ```
