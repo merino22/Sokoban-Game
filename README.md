@@ -4,7 +4,10 @@ The game winning condition is reached when all the storage locations have been f
 
 The game is played on a board of squares, where each square is a floor or a wall. Some floor squares contain boxes, and some floor squares are marked as storage locations.
 
-The player is confined to the board and may move horizontally or vertically onto empty squares (never through walls or boxes). The player can move a box by walking up to it and push it to the square beyond. Boxes cannot be pulled, and they cannot be pushed to squares with walls or other boxes. The number of boxes equals the number of storage locations. The puzzle is solved when all boxes are placed at storage locations. 
+The player is confined to the board and may move horizontally or vertically onto empty squares (never through walls or boxes). The player can move a box by walking up to it and push it to the square beyond. Boxes cannot be pulled, and they cannot be pushed to squares with walls or other boxes. The number of boxes equals the number of storage locations. The puzzle is solved when all boxes are placed at storage locations.
+
+![Screenshot from 2021-03-27 10-23-14](https://user-images.githubusercontent.com/47042092/112728241-ee376a80-8eeb-11eb-9d3a-af9274951744.png)
+
 
 ## Development Tools
 
@@ -18,17 +21,17 @@ This game is developed using EasyASM, a simulator for a subset of MIPS32 and x86
  
 1. Make sure you have EasyASM project installed (Link provided Above), with set environment variable
 
-2. To be able to make use of syscall library provided in the project you'll need to make sure to hace cmake installed in your system
+2. To be able to make use of syscall library provided in the project you'll need to make sure to have cmake installed in your system
 
 3. Download zip file or Clone project to your local file system using repository's .git file(https://github.com/merino22/Sokoban-Game.git)
 ```bash
-$ git clone 
+$ git clone https://github.com/merino22/Sokoban-Game.git
 ```
 
 4. Once you've cloned the project successfully, locate yourself inside project dir and create build folder
 
 ```bash
-$ cd /home/user/Sokoban-Game
+$ cd /home/user/Desktop/Sokoban-Game
 $ sudo mkdir build
 ```
 5. Locate yourself inside build dir and run CMake command
@@ -53,16 +56,25 @@ Output:
 ```bash 
 $ EasyASM --sc-handler ./build/libsc-plugin.so --run ./SokobanGame/Sokoban.asm ./SokobanGame/Maps.asm SokobanGame/Figures.asm
 ```
+8. Sokoban Game should be up and running! Have fun!
 
-### Recommendations
+## Recommendations
 Running Sokoban on VSCode terminal will give the game an overall better aesthetic
+Running Sokoban with your terminal in full screen mode will give the game an overall better aesthetic
 
-8. You're all set! Have fun!
-
-### Checking for EasyASM & CMake Installation
+## Checking for EasyASM & CMake Installations
 To check EasyASM type following command in terminal
+```bash
+$ EasyASM
+```
+If EasyASM is installed in your system, the next ouput will be prompted:
+![Screenshot from 2021-03-27 10-40-05](https://user-images.githubusercontent.com/47042092/112727654-1e313e80-8ee9-11eb-8cc1-4eff134dbf5a.png)
 
 To check CMake type following command in terminal
 ```bash 
 $ cmake --version
 ```
+
+## Level Preview
+
+![SOK](https://user-images.githubusercontent.com/47042092/112728264-04ddc180-8eec-11eb-9911-189fabcc8fec.png)
