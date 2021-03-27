@@ -8,4 +8,4 @@ The player is confined to the board and may move horizontally or vertically onto
 
 ## Tools
 
-This game is developed using EasyASM, a simulator for a subset of MIPS32 and x86 ISAs(https://github.com/ideras/EasyASM) - with the help of a syscall-handling library and also rlutil library. The reach of the development of this game is to at least fully develope three playable levels.
+This game is developed using EasyASM, a simulator for a subset of MIPS32 and x86 ISAs by Ideras(https://github.com/ideras/EasyASM) - with the help of a syscall-handling library and also rlutil library by Tapio(https://github.com/tapio/rlutil). The reach of the development of this game is to at least fully develope three playable levels.
