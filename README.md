@@ -22,7 +22,7 @@ This game is developed using EasyASM, a simulator for a subset of MIPS32 and x86
 
 3. Download zip file or Clone project to your local file system using repository's .git file(https://github.com/merino22/Sokoban-Game.git)
 ```bash
-$ git clone 
+$ git clone https://github.com/merino22/Sokoban-Game.git
 ```
 
 4. Once you've cloned the project successfully, locate yourself inside project dir and create build folder
