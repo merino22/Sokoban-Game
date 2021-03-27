@@ -6,6 +6,6 @@ The game is played on a board of squares, where each square is a floor or a wall
 
 The player is confined to the board and may move horizontally or vertically onto empty squares (never through walls or boxes). The player can move a box by walking up to it and push it to the square beyond. Boxes cannot be pulled, and they cannot be pushed to squares with walls or other boxes. The number of boxes equals the number of storage locations. The puzzle is solved when all boxes are placed at storage locations. 
 
-## Tools
+## Development Tools
 
 This game is developed using EasyASM, a simulator for a subset of MIPS32 and x86 ISAs by Ideras(https://github.com/ideras/EasyASM) - with the help of a syscall-handling library and also rlutil library by Tapio(https://github.com/tapio/rlutil). The reach of the development of this game is to at least fully develope three playable levels.
