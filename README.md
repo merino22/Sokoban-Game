@@ -74,6 +74,9 @@ To check CMake type following command in terminal
 ```bash 
 $ cmake --version
 ```
+If CMake is installed in your system, the next ouput will be prompted:
+![Screenshot 2021-03-27 114331](https://user-images.githubusercontent.com/47042092/112729455-c4814200-8ef1-11eb-918b-2dea0f7f8e26.png)
+
 
 ## Level Preview
 
