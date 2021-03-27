@@ -54,12 +54,12 @@ Output:
 $ EasyASM --sc-handler ./build/libsc-plugin.so --run ./SokobanGame/Sokoban.asm ./SokobanGame/Maps.asm SokobanGame/Figures.asm
 ```
 
-### Recommendations
+## Recommendations
 Running Sokoban on VSCode terminal will give the game an overall better aesthetic
 
 8. You're all set! Have fun!
 
-### Checking for EasyASM & CMake Installation
+## Checking for EasyASM & CMake Installation
 To check EasyASM type following command in terminal
 
 To check CMake type following command in terminal
