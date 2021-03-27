@@ -28,7 +28,7 @@ $ git clone https://github.com/merino22/Sokoban-Game.git
 4. Once you've cloned the project successfully, locate yourself inside project dir and create build folder
 
 ```bash
-$ cd /home/user/Sokoban-Game
+$ cd /home/user/Desktop/Sokoban-Game
 $ sudo mkdir build
 ```
 5. Locate yourself inside build dir and run CMake command
